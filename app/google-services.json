@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "228325363503",
+    "firebase_url": "https://local-abbey-167209.firebaseio.com",
+    "project_id": "local-abbey-167209",
+    "storage_bucket": "local-abbey-167209.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228325363503:android:5ef12b31b96278e9",
+        "android_client_info": {
+          "package_name": "com.example.admin.beerandmusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228325363503-rt4918h6mjiqsf3dvf479edkb274sga9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.beerandmusic",
+            "certificate_hash": "0065334880f02fafa947c02e3321aacb527e44b4"
+          }
+        },
+        {
+          "client_id": "228325363503-ppdq08g7a4tneot3oe3v1uj7t4nrbk1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpkkn3iUI336l3KzFbLUbRSw3oTy7B6CQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228325363503-ppdq08g7a4tneot3oe3v1uj7t4nrbk1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

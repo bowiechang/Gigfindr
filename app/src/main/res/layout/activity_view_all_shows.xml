@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgyellow1"
+    tools:context="com.example.admin.beerandmusic.ViewAllShowsActivity">
+
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/appbar"-->
+        <!--app:elevation="0dp"-->
+        <!--android:background="@null"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--&gt;-->
+
+        <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?android:actionBarSize"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<android.support.v7.widget.Toolbar-->
+                <!--android:id="@+id/toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@color/yellow1">-->
+
+                <!--<com.polyak.iconswitch.IconSwitch-->
+                    <!--android:id="@+id/icon_switch"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="end|center_vertical"-->
+                    <!--android:layout_marginRight="1dp"-->
+                    <!--app:isw_default_selection="left"-->
+                    <!--app:isw_background_color="@color/bgyellow"-->
+                    <!--app:isw_icon_left="@drawable/iconlist"-->
+                    <!--app:isw_icon_right="@drawable/icongenre3"-->
+                    <!--app:isw_thumb_color_left="@color/black"-->
+                    <!--app:isw_thumb_color_right="@color/black" />-->
+
+
+            <!--</android.support.v7.widget.Toolbar>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/toolbar_title"-->
+                <!--style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:textSize="20sp"-->
+                <!--android:fontFamily="@font/fjalla_one_test"-->
+                <!--android:text="@string/viewallshowsactivity_upcomingshows"-->
+                <!--android:textColor="@color/black" />-->
+
+        <!--</FrameLayout>-->
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        app:elevation="0dp"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="27dp"
+                android:layout_marginRight="27dp">
+
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_upcomingshows"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                <lib.kingja.switchbutton.SwitchMultiButton
+                    android:id="@+id/testerswitchbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:padding="7dp"
+                    app:selectedTab="0"
+                    app:selectedColor="@color/black"
+                    app:strokeWidth="2dp"
+                    app:textSize="12sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+
+    <FrameLayout
+        android:id="@+id/genre_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="94dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="50dp">
+
+
+            <LinearLayout
+                android:id="@+id/layoutBlues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButtonBlues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/bluesgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_blues"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutRock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/layoutJazz"
+                app:layout_constraintStart_toEndOf="@+id/layoutBlues"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButtonRock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/rockgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_rock"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutHipHop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutJazz"
+                app:layout_constraintStart_toStartOf="@+id/layoutJazz"
+                app:layout_constraintTop_toBottomOf="@+id/layoutJazz">
+
+                <ImageButton
+                    android:id="@+id/imageButtonHipHop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/hiphopgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_hiphop"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutMetal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutReggae"
+                app:layout_constraintStart_toStartOf="@+id/layoutReggae"
+                app:layout_constraintTop_toBottomOf="@+id/layoutReggae">
+
+                <ImageButton
+                    android:id="@+id/imageButtonMetal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/metalgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_metal"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutIndie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutBlues"
+                app:layout_constraintStart_toStartOf="@+id/layoutBlues"
+                app:layout_constraintTop_toBottomOf="@+id/layoutBlues">
+
+                <ImageButton
+                    android:id="@+id/imageButtonIndie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/indiegenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_indie"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutPunk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutIndie"
+                app:layout_constraintStart_toStartOf="@+id/layoutIndie"
+                app:layout_constraintTop_toBottomOf="@+id/layoutIndie">
+
+                <ImageButton
+                    android:id="@+id/imageButtonPunk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/punkgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_punk"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutReggae"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutPop"
+                app:layout_constraintStart_toStartOf="@+id/layoutPop"
+                app:layout_constraintTop_toBottomOf="@+id/layoutPop">
+
+                <ImageButton
+                    android:id="@+id/imageButtonReggae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/reggaegenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_reggae"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutSoul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutHipHop"
+                app:layout_constraintStart_toStartOf="@+id/layoutHipHop"
+                app:layout_constraintTop_toBottomOf="@+id/layoutHipHop">
+
+                <ImageButton
+                    android:id="@+id/imageButtonSoul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/soulgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_soul"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutElectronic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutPunk"
+                app:layout_constraintStart_toStartOf="@+id/layoutPunk"
+                app:layout_constraintTop_toBottomOf="@+id/layoutPunk">
+
+                <ImageButton
+                    android:id="@+id/imageButtonElectronic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/electronicgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_electronic"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutPop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/layoutRock"
+                app:layout_constraintStart_toStartOf="@+id/layoutRock"
+                app:layout_constraintTop_toBottomOf="@+id/layoutRock">
+
+                <ImageButton
+                    android:id="@+id/imageButtonPop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/popgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_pop"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutJazz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/bgyellow1"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/imageButtonJazz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:background="@color/bgyellow1"
+                    app:srcCompat="@drawable/jazzgenre"
+                    tools:layout_editor_absoluteX="24dp"
+                    tools:layout_editor_absoluteY="43dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/bgyellow1"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/viewallshowsactivity_jazz"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </FrameLayout>
+
+    <com.yayandroid.parallaxrecyclerview.ParallaxRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/bgyellow1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar"/>
+
+    <LinearLayout
+        android:id="@+id/llNoShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/noshowfound"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvNoShow"
+            android:layout_marginTop="20dp"
+            android:text="@string/viewallshowsactivity_noupcomingshow"
+            android:fontFamily="@font/fjalla_one_test"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/spinnerkitloader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bgyellow1"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.FoldingCube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:SpinKit_Color="@color/yellow1" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

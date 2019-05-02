@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ld_activityScreenTitlesLoggedIn">
+        <item>Find nearby shows</item>
+        <item>Upcoming shows</item>
+        <item>Account</item>
+        <item>My shows</item>
+        <!--<item />-->
+        <item>About app</item>
+    </string-array>
+
+    <string-array name="ld_activityScreenTitlesLoggedOut">
+        <item>Find nearby shows</item>
+        <item>Upcoming shows</item>
+        <item>Share your shows</item>
+        <!--<item />-->
+        <item>About app</item>
+    </string-array>
+
+    <array name="ld_activityScreenIconsLoggedIn">
+        <item>@drawable/iconfindnearbyshow</item>
+        <item>@drawable/icondate60dp</item>
+        <item>@drawable/iconaccount63dp</item>
+        <item>@drawable/iconmyshows50dp</item>
+        <!--<item>0</item>-->
+        <item>@drawable/iconabout64dp</item>
+    </array>
+
+    <array name="ld_activityScreenIconsLoggedOut">
+        <item>@drawable/iconfindnearbyshow</item>
+        <item>@drawable/icondate60dp</item>
+        <item>@drawable/iconaccount63dp</item>
+        <!--<item>0</item>-->
+        <item>@drawable/iconabout64dp</item>
+    </array>
+</resources>

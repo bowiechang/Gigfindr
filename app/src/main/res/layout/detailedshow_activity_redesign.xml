@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgyellow1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/MyAppbar"
+        app:elevation="0dp"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="27dp">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="Show Details"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="7dp"
+        android:layout_below="@id/MyAppbar"
+        app:cardCornerRadius="14dp"
+        tools:ignore="ExtraText">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ExtraText">
+
+
+
+
+
+            //bg img
+            <ImageView
+                android:id="@+id/imageViewBandpic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
+
+            //black dim
+            <RelativeLayout
+                android:id="@+id/relativeLayoutBlackDim"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:alpha="0.479"/>
+
+            //black gradient dim
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/listgradient"/>
+
+            //BAND text
+            <RelativeLayout
+                android:id="@+id/relativeLayoutBandTab"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailedshowband"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:textColor="@color/yellow1"
+                    android:textSize="20sp"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="165dp"
+                android:padding="15dp">
+
+                //instagram button
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutSocialMediaInstagram"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/rectangle_yellowborder_roundedcorners"
+                    android:padding="7dp">
+
+                    <TextView
+                        android:id="@+id/tvInstagram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/detailedshowactivity"
+                        android:textColor="@color/yellow1"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto_condensed_bold_test_download"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+                //band name
+                <TextView
+                    android:id="@+id/tvBandName2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:layout_marginTop="55dp"
+                    android:textColor="@color/yellow1"
+                    android:fontFamily="@font/fjalla_one_test"/>
+
+                //genre
+                <TextView
+                    android:id="@+id/tvGenre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvBandName2"
+                    android:textSize="17sp"
+                    android:textColor="@color/yellow1"
+                    android:fontFamily="@font/roboto_medium_test"/>
+
+                //about
+
+                <TextView
+                    android:id="@+id/tvAboutBand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvGenre"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_condensed_regular_download"
+                    android:textColor="@color/white_greyish"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+
+
+
+            //show text
+            <RelativeLayout
+                android:id="@+id/relativeLayoutShowTab"
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:background="@drawable/detailedshowborder"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailedshowshow"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutShow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/detailedshowborderforshowfulltab"
+                android:layout_below="@id/relativeLayoutShowTab"
+                android:padding="15dp">
+
+
+                //day
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:layout_marginTop="15dp"/>
+
+                <!--//date-->
+                <!--<TextView-->
+                    <!--android:id="@+id/tvDate"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="24 Aug"-->
+                    <!--android:textSize="23sp"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:fontFamily="@font/fjalla_one_test"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_below="@id/tvDay"/>-->
+
+                //time
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/tvDate"/>
+
+                //fee
+                <TextView
+                    android:id="@+id/tvFee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/tvTime"/>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutLocationAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/tvFee"
+                    android:layout_marginTop="12dp">
+
+                    //location
+                    <TextView
+                        android:id="@+id/tvLocationName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/fjalla_one_test"/>
+
+                </LinearLayout>
+
+                //address
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium_test"
+                    android:layout_below="@id/linearLayoutLocationAddress"/>
+
+
+
+
+                //map
+                <ImageView
+                    android:id="@+id/ivMapImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    android:layout_below="@id/tvAddress"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/defaultImageCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="invisible"
+                    android:layout_below="@id/tvAddress">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black"
+                        android:alpha="0.7"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opps, no image found"
+                        android:textSize="23sp"
+                        android:textColor="@color/white"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:fontFamily="@font/roboto_slab_bold_download"/>
+
+
+                </RelativeLayout>
+
+
+                //button
+                <RelativeLayout
+                    android:id="@+id/buttonGetDirections"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_blackborder_roundedcorners"
+                    android:layout_alignParentBottom="true"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Get Directions"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/roboto_condensed_bold_test_download"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/spinnerkitloader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:translationZ="20dp"
+                    android:background="@color/bgyellow1">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.FoldingCube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:SpinKit_Color="@color/yellow1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

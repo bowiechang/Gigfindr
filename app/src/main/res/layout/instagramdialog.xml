@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bgyellow1"
+    app:cardCornerRadius="7dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bgyellow1">
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bgyellow1"
+            android:orientation="vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accountactivity_enterigname"
+                android:fontFamily="@font/roboto_slab_bold_download"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:text="@string/accountactivity_enterigname2"
+                android:textSize="13sp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_below="@id/ll1"
+            android:background="@drawable/rectangle_blackborder">
+
+            <EditText
+                android:id="@+id/etIGName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:inputType="textVisiblePassword"
+                android:hint="Instagram Name"
+                android:paddingLeft="15dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/bgyellow1"
+            android:layout_below="@id/ll2"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp">
+
+            <RelativeLayout
+                android:id="@+id/tvcancel"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="45dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/rectangle_blackborder">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/postshowactivity_CANCEL"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto_condensed_bold_test_download"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tvconfirm"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="45dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/rectangle_blackborder">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/confirm_caps"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto_condensed_bold_test_download"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

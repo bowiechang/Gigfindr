@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="27dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginTop="65dp"
+            android:text="@string/signUp"
+            android:textColor="@color/yellow"
+            android:fontFamily="@font/fjalla_one_test"
+            android:textSize="30sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rectangle_whiteborder">
+
+            <EditText
+                android:id="@+id/userEmailId"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/iconemailwhite52"
+                android:textCursorDrawable="@null"
+                style="@style/edittextcolorcontrol"
+                android:background="@android:color/transparent"
+                android:drawablePadding="8dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white_greyish"
+                android:textColorHint="@color/white_greyish"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rectangle_whiteborder">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/iconpasswordwhite52"
+                android:textCursorDrawable="@null"
+                style="@style/edittextcolorcontrol"
+                android:background="@android:color/transparent"
+                android:drawablePadding="8dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:hint="@string/passowrd"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white_greyish"
+                android:textColorHint="@color/white_greyish"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rectangle_whiteborder">
+
+            <EditText
+                android:id="@+id/confirmPassword"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/iconpassword2white52"
+                android:textCursorDrawable="@null"
+                style="@style/edittextcolorcontrol"
+                android:background="@android:color/transparent"
+                android:drawablePadding="8dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:hint="@string/confirmPassword"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white_greyish"
+                android:textColorHint="@color/white_greyish"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/terms_conditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/terms_conditions"
+            android:textColor="@color/white_greyish"
+            android:buttonTint="@color/white_greyish"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/signUpBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/loginbutton_selector"
+            android:padding="3dp"
+            android:text="@string/signUp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:fontFamily="@font/roboto_condensed_bold_test_download"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_user"
+                android:textColor="@color/white_greyish"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/already_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/already_user2"
+                android:textColor="@color/yellow"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <!--<TextView-->
+            <!--android:id="@+id/already_user"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="10dp"-->
+            <!--android:text="@string/already_user"-->
+            <!--android:textColor="@color/yellow"-->
+            <!--android:fontFamily="@font/roboto_condensed_bold"-->
+            <!--android:textSize="15sp" />-->
+
+    </LinearLayout>
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+                  <!--android:id="@+id/saveditloader2"-->
+                  <!--android:layout_width="wrap_content"-->
+                  <!--android:layout_height="wrap_content"-->
+                  <!--android:background="@color/bgyellow1"-->
+                  <!--android:layout_alignParentEnd="true"-->
+                  <!--android:gravity="center"-->
+                  <!--android:orientation="vertical"-->
+                  <!--android:layout_marginTop="140dp"-->
+                  <!--android:layout_marginRight="40dp"-->
+                  <!--android:layout_marginLeft="40dp">-->
+
+        <!--<com.github.ybq.android.spinkit.SpinKitView-->
+            <!--android:id="@+id/spin_kitforsaveandedit"-->
+            <!--style="@style/SpinKitView.Large.FoldingCube"-->
+            <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:paddingTop="30dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:SpinKit_Color="@color/yellow1"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvSaving1"-->
+            <!--android:layout_marginTop="17dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:fontFamily="@font/roboto_condensed_bold_test_download"-->
+            <!--android:textSize="25sp"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:text="@string/signupfragment_loading"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvSaving2"-->
+            <!--android:layout_marginTop="4dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:fontFamily="@font/roboto_condensed_bold_test_download"-->
+            <!--android:textSize="12sp"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:paddingBottom="40dp"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:text="@string/signupfragment_loadingtext"/>-->
+
+
+    <!--</LinearLayout>-->
+
+</RelativeLayout>

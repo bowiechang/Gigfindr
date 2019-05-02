@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusableInTouchMode="true"
+                tools:context="com.example.admin.beerandmusic.DecideActivity">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:weightSum="2"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintVertical_bias="0.719">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/layoutPostShow"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/bgyellow1"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/ivPostShow"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/decideactivityshareyourshow"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="39dp"
+                            android:layout_marginLeft="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintHorizontal_bias="0.502"/>
+
+                        <TextView
+                            android:id="@+id/tvPostShow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="10dp"
+                            android:text="@string/decideactivity_tvpostshow"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/decideactivity_tvpostshow2"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintTop_toBottomOf="@+id/ivPostShow"
+                            android:layout_marginLeft="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                    </android.support.constraint.ConstraintLayout>
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        android:id="@+id/layoutFindShow"
+                        android:layout_weight="1">
+
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/decideactivity_tvfindshow"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:layout_marginTop="15dp"
+                            app:layout_constraintTop_toBottomOf="@+id/ivFindShow"
+                            android:layout_marginLeft="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/ivFindShow"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="39dp"
+                            app:layout_constraintHorizontal_bias="0.501"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/decideactivityfindshowicon"/>
+
+                        <TextView
+                            android:id="@+id/tvFindShow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="0dp"
+                            android:padding="10dp"
+                            android:text="@string/decideactivity_tvfindshow2"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imageview_logo"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/spinnerkitloader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bgyellow1"
+                    android:gravity="center">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.FoldingCube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:SpinKit_Color="@color/yellow1" />
+
+    </RelativeLayout>
+</RelativeLayout>

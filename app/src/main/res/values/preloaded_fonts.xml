@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/anton</item>
+        <item>@font/fjalla_one</item>
+        <item>@font/laila_reg_download</item>
+        <item>@font/lekton_bold</item>
+        <item>@font/lekton_reg</item>
+        <item>@font/lora</item>
+        <item>@font/lora_bold</item>
+        <item>@font/oswald_bold</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_bold</item>
+        <item>@font/roboto_bold_test</item>
+        <item>@font/roboto_condensed_bold</item>
+        <item>@font/roboto_condensed_bold_test</item>
+        <item>@font/roboto_medium</item>
+        <item>@font/roboto_slab_bold</item>
+        <item>@font/roboto_test</item>
+    </array>
+</resources>

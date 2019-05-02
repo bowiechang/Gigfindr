@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pedalsignup1"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:alpha="0.6"/>
+
+        <FrameLayout
+            android:id="@+id/frameContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp"
+            android:theme="@style/ToolbarStyleForLogin">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.Toolbar>
+            </FrameLayout>
+        </android.support.design.widget.AppBarLayout>
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

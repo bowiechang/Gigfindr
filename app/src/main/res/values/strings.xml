@@ -1,0 +1,287 @@
+<resources>
+    <string name="app_name">GigFindr</string>
+    <string name="filter_by">Filter by</string>
+    <string name="is_opened_saturday">Is opened saturday</string>
+    <string name="saturday_opening">Saturday opening</string>
+    <string name="close">close</string>
+    <string name="title_activity_maps">BeerAndMusic</string>
+
+    <string name="facebook_app_id">171036663755808</string>
+    <string name="fb_login_protocol_scheme">fb171036663755808</string>
+
+    <string name="account_balance">Account Balance</string>
+    <string name="balance_currency">$</string>
+    <string name="balance_amount">524.99</string>
+
+    <string name="accountactivity_connect">Connect</string>
+    <string name="accountactivity_change2">Change</string>
+    <string name="accountactivity_removeAccount">Disconnect Instagram Account?</string>
+    <string name="accountactivity_logout">Are you sure you want to logout?</string>
+    <string name="accountactivity_remove">DISCONNECT</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="free_caps">FREE</string>
+    <string name="free">Free</string>
+    <string name="action_settings">Settings</string>
+    <string name="email">Email</string>
+    <string name="passowrd">Password</string>
+    <string name="sort_by_genre">Sort by genre</string>
+    <string name="login">LOGIN</string>
+    <string name="show_pwd">Show Password</string>
+    <string name="hide_pwd">Hide Password</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="closebutton">Close Button for Activity</string>
+    <string name="newUser">Not a Member yet?</string>
+    <string name="newUser2">Sign Up here!</string>
+    <string name="fullName">Full Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="location">Location</string>
+    <string name="confirm_caps">CONFIRM</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="terms_conditions">By clicking Sign Up, you agree with all the Terms and Conditions.</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="ForgetPassword">FORGET PASSWORD</string>
+    <string name="ResetPassword">RESET PASSWORD</string>
+    <string name="already_user">Already have an account?</string>
+    <string name="already_user2">Login here</string>
+    <string name="registered_emailid">Please enter your Registered Email below</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
+    <string name="edit">EDIT</string>
+    <string name="about">ABOUT</string>
+    <string name="cancel">Cancel</string>
+    <string name="or">or</string>
+    <string name="name">NAME</string>
+    <string name="namenocaps">Name</string>
+    <string name="save">SAVE</string>
+    <string name="logout">Logout</string>
+    <string name="datenocaps">Date</string>
+    <string name="locationnocaps">Location</string>
+    <string name="aboutnocaps"><u>About</u></string>
+    <string name="aboutnocapsnounderline">About</string>
+    <string name="showdetailsnocap">Show Details</string>
+    <string name="getdirections">GET DIRECTIONS</string>
+    <string name="view">View</string>
+
+    <string name="detailedshowactivity">View Instagram</string>
+
+    <string name="detailedshowband"><u>BAND</u></string>
+    <string name="detailedshowshow"><u>SHOW</u></string>
+    <string name="detailedshowtester">"Distinguishable beats that resembles Chris Dave and also sick licks from blues to fusion. We are a 4 piece cluelessly running up and down life with music as our pendant and chain."</string>
+
+    <string name="accountactivity_tv2saving">Telling the whole world the band is in town</string>
+    <string name="accountactivity_tv1saving">SAVING</string>
+    <string name="accountactivity_change">CHANGE</string>
+    <string name="accountactivity_abouthint"><i>People need to know more about your band, tell them more!</i></string>
+    <string name="accountactivity_abouthint2">BRIEF INTRODUCTION</string>
+    <string name="accountactivity_namehint">What\'s your band\'s name? The people need to know!</string>
+    <string name="accountactivity_namehint2">Name</string>
+    <string name="accountactivity_emptyname"><i>What\'s your band\'s name?</i></string>
+    <string name="accountactivity_selectapicture">Select a Picture</string>
+
+    <string name="decideactivity_tvpostshow">Tell the whole world where and when!</string>
+    <string name="decideactivity_tvpostshow2">SHARE YOUR SHOW</string>
+    <string name="decideactivity_tvfindshow">FIND A SHOW</string>
+    <string name="decideactivity_tvfindshow2">Look for live music and a good time!</string>
+
+    <string name="deleteaccoutnactivity_deleteaccount">Delete Account</string>
+
+    <string name="editinfoactivity_pickimage">Pick image</string>
+    <string name="editinfoactivity_aboutband">About band</string>
+
+    <string name="mapactivity_findnearshow">FIND SHOWS NEAR ME</string>
+
+    <string name="postshowactivity_deleteshow">DELETE</string>
+    <string name="postshowactivity_addshow">ADD</string>
+    <string name="postshowactivity_postshowtitle">Add Show</string>
+    <string name="postshowactivity_endtime">End Time</string>
+    <string name="postshowactivity_starttime">Start Time</string>
+    <string name="postshowactivity_addashow">Add a show</string>
+    <string name="postshowactivity_location">Location</string>
+    <string name="postshowactivity_fee">Fee</string>
+    <string name="postshowactivity_genre">Genre</string>
+    <string name="postshowactivity_date">Date</string>
+
+    <string name="privacypolicyactivity_privacypolicy">Privacy policy</string>
+
+    <string name="signupfragment_loadingtext">Hang tight with us, our roadies are getting the stage ready!</string>
+    <string name="signupfragment_loading">LOADING</string>
+
+    <string name="termsandconditionactivity_termsnandcondition">Terms and Conditions</string>
+
+    <string name="thirdpartylibs_3rdpartylibs">3rd party libraries</string>
+
+    <string name="markerinfowindow_select"><i>Select for more details</i></string>
+
+    <string name="viewallshowsactivity_upcomingshows">Upcoming shows</string>
+    <string name="viewallshowsactivity_blues">Blues</string>
+    <string name="viewallshowsactivity_rock">Rock</string>
+    <string name="viewallshowsactivity_hiphop">Hip Hop</string>
+    <string name="viewallshowsactivity_metal">Metal</string>
+    <string name="viewallshowsactivity_indie">Indie</string>
+    <string name="viewallshowsactivity_punk">Punk</string>
+    <string name="viewallshowsactivity_reggae">Reggae</string>
+    <string name="viewallshowsactivity_soul">Soul</string>
+    <string name="viewallshowsactivity_electronic">Electronic</string>
+    <string name="viewallshowsactivity_pop">Pop</string>
+    <string name="viewallshowsactivity_jazz">Jazz</string>
+    <string name="viewallshowsactivity_noupcomingshow">Sorry, no upcoming show found</string>
+
+    <string name="accountactivity_enterigname">INSTAGRAM NAME</string>
+    <string name="accountactivity_enterigname2">Enter your Instagram handle</string>
+    <string name="accountactivity_introductionHint">Talk about yourselves, how your band came together, band name, adventures you took as a band, basically anything that makes your band!</string>
+
+    <string name="postshowactivity_entryfee">ENTRY FEE</string>
+    <string name="postshowactivity_entryfee2">Enter \'Free\' if it is free</string>
+    <string name="postshowactivity_OK">OK</string>
+    <string name="postshowactivity_CANCEL">CANCEL</string>
+
+    <string name="locationcheckeractivity_buttontext">TURN ON LOCATION</string>
+    <string name="locationcheckeractivity_text">Enable location to continue using app!</string>
+
+    <string name="viewmyshows_myshows">My Shows</string>
+    <string name="viewmyshows_myshows_noshow">You Have No Upcoming Show</string>
+
+    <string name="about1">Two friends that worked under the void deck to bring you <i>GigFindr</i>, the service that was created by locals and for locals. Nothing beats live music, it is raw expression, pure hardwork and it shoudn\'t be kept in the corners of our lives. We believe in working with local artiste to broaden their reach and promote asipring dreams growth.
+    </string>
+
+    <string name="about2">Nothing beats live music, pure raw expression caught only in the middle of the sets. Behind them lies a story to be told, hard work to be felt and it shouldn’t be kept in the corners of our lives. Here in <i>GigFindr</i>, we want to help you gain more exposure while providing a one-stop service to help keep your schedule tidy and your fans itching for more. \n\nWe are open to suggestions so  do let us know what we can improve on! We won’t let you go unheard.
+    </string>
+
+    <string name="smilingbirdabout"><b>Smiling Bird Vision</b>
+    </string>
+
+    <string name="smilingbirdcontact">
+        Contact us at smiling.bird.vision@gmail.com
+    </string>
+
+    <string name="yatAbout"><b>Nur Hidayat</b>, no stranger to the tomes and hieroglyphics of the design world.
+        Intricate designs to illustrations, he has it all.
+    </string>
+
+    <string name="tpsthanks">Without them, we won\'t be here. A huge THANK YOU to the following mentioned libraries, do check them out!</string>
+
+    <string name="yatContact">
+        Contact: yatson4@gmail.com
+    </string>
+
+    <string name="pp">&#8226; <u>Privacy Policy</u></string>
+    <string name="tc">&#8226; <u>T&amp;C</u></string>
+    <string name="tps">&#8226; <u>3rd Party Libraries</u></string>
+
+
+    <string name="lib1">&#8226; <u>IWAHalfModalPresenter</u></string>
+    <string name="lib2">&#8226; <u>SlidingRootNav</u></string>
+    <string name="lib3">&#8226; <u>Android-SpinKit</u></string>
+    <string name="lib4">&#8226; <u>ParallaxRecyclerView</u></string>
+    <string name="lib5">&#8226; <u>IconSwitch</u></string>
+
+    <string name="privacypolicy">
+        <u><b>About Privacy Policy</b></u>
+        \n
+        \n Smiling Bird Vision built the GigFindr app as an ad-supported app. This SERVICE is provided by GigFindr and is intended for use as is.
+        This page is used to inform app visitors regarding GigFindr policies with the collection, use, and disclosure of Personal Information if anyone decided to use GigFindr Service.
+        If you choose to use GigFindr Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
+        The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at GigFindr, unless otherwise defined in this Privacy Policy.
+        \n
+        \n
+        \n<u><b>Information Collection and Use</b></u>
+        \n
+        \nFor a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to users name, email, address, location, pictures, details. The information that we request is will be retained by us and used as described in this privacy policy.
+        The app does use third party services that may collect information used to identify you.
+        \n
+        \n
+        \n<u><b>Log Data</b></u>
+        \n
+        \nWe want to inform you that whenever you use GigFindr Service, in case of an error in the app we collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your devices’s Internet Protocol (“IP”) address, device name, operating system version, configuration of the app when utilising GigFindr Service, the time and date of your use of the Service, and other statistics.
+
+        \n
+        \n
+        \n<u><b>Service Providers</b></u>
+        \n
+        \nWe may employ third-party companies and individuals due to the following reasons:
+        •	To facilitate our Service;
+        •	To provide the Service on our behalf;
+        •	To perform Service-related services; or
+        •	To assist us in analyzing how our Service is used.
+        We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+        Security
+        We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and [I|we] cannot guarantee its absolute security.
+        \n
+        \n
+        \n<u><b>Links to Other Sites</b></u>
+        \n
+        \nThis Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by GigFindr. Therefore, We strongly advise you to review the Privacy Policy of these services. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+        \n
+        \n
+        \n<u><b>Children’s Privacy</b></u>
+        \n
+        \nThis Services do not address anyone under the age of 13. We do not knowingly collect personal identifiable information from children under 13. In the case we discover that a child under 13 has provided GigFindr with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact GigFindr so that we will be able to do necessary actions.
+        \n
+        \n
+        \n<u><b>Changes to This Privacy Policy</b></u>
+        \n
+        \nWe may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.
+        \n
+        \n
+        \n<u><b>Contact Us</b></u>
+        \n
+        \nIf you have any questions or suggestions about GigFindr’s Privacy Policy, do not hesitate to contact GigFindr.
+
+
+
+    </string>
+
+    <string name="termsandcondtion"><i>Please read these terms and conditions ("terms", "terms and conditions") carefully before using GigFindr (the "service") operated by GigFindr ("us", "we", "our").</i>
+        \n
+        \n
+        \n<u><b>Conditions of Use</b></u>
+        \n
+        \nWe will provide our services to you, which are subject to the conditions stated below in this document. Every time you visit this app, use its services or make a purchase, you accept the following conditions. This is why we urge you to read them carefully.
+        \n
+        \n
+        \n<u><b>Privacy Policy</b></u>
+        \n
+        \nBefore you continue using our website we advise you to read our privacy policy regarding our user data collection. It will help you better understand our practices.
+        \n
+        \n
+        \n<u><b>Copyright</b></u>
+        \n
+        \nContent published on this app (digital downloads, images, texts, graphics, logos) is the property of GigFindr and/or its content creators and protected by international copyright laws. The entire compilation of the content found on this app is the exclusive property of GigFindr, with copyright authorship for this compilation by GigFindr.
+        \n
+        \n
+        \n<u><b>Communications</b></u>
+        \n
+        \nThe entire communication with us is electronic. Every time you send us an email or visit our app, you are going to be communicating with us. You hereby consent to receive communications from us. If you subscribe to the news on our app, you are going to receive regular emails from us. We will continue to communicate with you by posting news and notices on our app and by sending you emails. You also agree that all notices, disclosures, agreements and other communications we provide to you electronically meet the legal requirements that such communications be in writing.
+        \n
+        \n
+        \n<u><b>Applicable Law</b></u>
+        \n
+        \nBy visiting this app, you agree that the laws of the country you reside in, without regard to principles of conflict laws, will govern these terms and conditions, or any dispute of any sort that might come between GigFindr and you, or its business partners and associates.
+        \n
+        \n
+        \n<u><b>Disputes</b></u>
+        \n
+        \nAny dispute related in any way to your visit to this app or to products you purchase from us shall be arbitrated by state or federal court of your location and you consent to exclusive jurisdiction and venue of such courts.
+        \n
+        \n
+        \n<u><b>Comments, Reviews, and Emails</b></u>
+        \n
+        \nVisitors may post content as long as it is not obscene, illegal, defamatory, threatening, infringing of intellectual property rights, invasive of privacy or injurious in any other way to third parties. Content has to be free of software viruses, political campaign, and commercial solicitation.
+        We reserve all rights (but not the obligation) to remove and/or edit such content. When you post your content, you grant GigFindr non-exclusive, royalty-free and irrevocable right to use, reproduce, publish, modify such content throughout the world in any media.
+        \n
+        \n
+        \n<u><b>License and Site Access</b></u>
+        \n
+        \nWe grant you a limited license to access and make personal use of this app. You are not allowed to download or modify it. This may be done only with written consent from us.
+        \n
+        \n
+        \n<u><b>User Account</b></u>
+        \n
+        \nIf you are an owner of an account on this app, you are solely responsible for maintaining the confidentiality of your private user details (username and password). You are responsible for all activities that occur under your account or password.
+        We reserve all rights to terminate accounts, edit or remove content and cancel orders in their sole discretion.
+
+
+
+    </string>
+</resources>

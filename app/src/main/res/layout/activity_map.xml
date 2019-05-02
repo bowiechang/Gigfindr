@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:elevation="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+
+        android:id="@+id/relativeLayoutMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/yellow1"/>
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="@string/app_name"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+
+
+
+
+        <fragment android:id="@+id/map"
+                  android:name="com.google.android.gms.maps.SupportMapFragment"
+                  xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  tools:context="com.example.admin.beerandmusic.MapActivity"
+                  android:layout_height="match_parent"/>
+
+        <FrameLayout
+            android:id="@+id/framelayout_maptouch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGetNearbyShow"
+            android:background="@drawable/mapbutton"
+            android:layout_margin="6dp"
+            android:text="@string/mapactivity_findnearshow"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal|center_vertical"/>
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/spinnerkitloader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bgyellow1"
+                    android:gravity="center">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.FoldingCube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:SpinKit_Color="@color/yellow1" />
+
+    </RelativeLayout>
+</RelativeLayout>

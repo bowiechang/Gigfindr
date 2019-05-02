@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgyellow1"
+    android:focusableInTouchMode="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/MyAppbar"
+        app:elevation="0dp"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="27dp"
+                android:layout_marginRight="35dp">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:text="Profile"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <RelativeLayout
+                    android:id="@+id/ivLogout"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/buttonlogout"/>
+
+                </RelativeLayout>
+
+
+
+            </android.support.constraint.ConstraintLayout>
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/MyAppbar"
+        tools:ignore="ExtraText">
+
+        //linearlayout for save
+        <LinearLayout
+            android:id="@+id/linearLayoutSave"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rectangle_blackborder"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp">
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:text="@string/save"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:textSize="26sp"-->
+                <!--android:fontFamily="@font/roboto_condensed_bold_test_download"-->
+                <!--android:textColor="@color/black"/>-->
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btnSave"
+                android:background="@drawable/mapbutton"
+                android:text="SAVE"
+                android:gravity="center_horizontal|center_vertical"/>
+
+        </LinearLayout>
+
+        //relativeLayout about
+        <RelativeLayout
+            android:id="@+id/relativeLayoutAbout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_above="@id/linearLayoutSave"
+            android:background="@drawable/rectangle_blackborder"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/tvIntroduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_condensed_bold_test"
+                android:textColor="@color/black"
+                android:text="@string/accountactivity_abouthint2"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/etAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvIntroduction"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:hint="@string/accountactivity_introductionHint"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
+                android:textColorHint="@color/switchbg"
+                android:maxLength="300"
+                android:textAlignment="center"/>
+
+        </RelativeLayout>
+
+        //linearlayout for name and ig connect
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@id/relativeLayoutAbout">
+
+            //edittextName
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:padding="10dp"
+                android:maxLength="20"
+                android:background="@drawable/rectangle_blackborder"
+                android:textCursorDrawable="@null"
+                style="@style/edittextcolorcontrolBlack"
+                android:gravity="center"
+                android:hint="@string/name"
+                android:inputType="textCapCharacters"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:fontFamily="@font/roboto_condensed_bold_test_download"
+                android:textSize="16sp" />
+
+            //linearlayout ig connect
+            <LinearLayout
+                android:id="@+id/iconInstagramEdit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rectangle_blackborder"
+                android:layout_weight="0.4"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/instagram_black"
+                    android:adjustViewBounds="true"/>
+
+                <TextView
+                    android:id="@+id/tvIGstatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="CONNECT"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/roboto_condensed_bold_test_download"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        //relativeLayout Image
+        <RelativeLayout
+            android:id="@+id/relativeLayoutImage"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/rectangle_blackborder"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@id/linearLayout1">
+
+            <ImageView
+                android:id="@+id/ivBandPicEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/iconemptypic"
+                android:adjustViewBounds="true"
+                android:layout_margin="0dp"/>
+
+            <ImageView
+                android:id="@+id/ivBandPic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:layout_margin="0dp"/>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutChangePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:alpha="0.7"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:text="CHANGE"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/fjalla_one_test"
+                    android:gravity="center"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout android:id="@+id/saveditloader1"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.7"
+                    android:background="@color/black"/>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/saveditloader2"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@color/bgyellow1"
+                  android:gravity="center"
+                  android:layout_centerInParent="true"
+                  android:orientation="vertical">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kitforsaveandedit"
+            style="@style/SpinKitView.Large.FoldingCube"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:paddingTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:SpinKit_Color="@color/yellow1"/>
+
+        <TextView
+            android:id="@+id/tvSaving1"
+            android:layout_marginTop="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_bold_test_download"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:text="@string/accountactivity_tv1saving"/>
+
+        <TextView
+            android:id="@+id/tvSaving2"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_condensed_bold_test_download"
+            android:textSize="12sp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="40dp"
+            android:textColor="@color/black"
+            android:text="@string/accountactivity_tv2saving"/>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/spinnerkitloader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:background="@color/bgyellow1">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.FoldingCube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:SpinKit_Color="@color/yellow1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

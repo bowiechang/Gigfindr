@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+    <color name="black">#141414</color>
+    <color name="TransparentWhite">#66ffffff</color>
+    <color name="FilterSelectedBackground">#4c0d16</color>
+
+    <color name="background_color">#009688</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_greyish">#EEEEEE</color>
+    <color name="button_selectorcolor">#9E9E9E</color>
+    <color name="yellow">#FFC907</color>
+    <color name="yellow1">#f8bc28</color>
+    <color name="menu_selected">#e3a765</color>
+    <color name="menu">#5d6d7c</color>
+    <color name="drawerbg">#f2efe2</color>
+    <color name="tester">#00a2ad</color>
+    <color name="tester2">#f6a801</color>
+    <color name="tester3">#2E363E</color>
+    <color name="fontyellow">#EDB900</color>
+    <color name="switchyellow">#efd269</color>
+    <!--<color name="bgyellow">#FDFFFC</color>-->
+    <color name="bgyellow1">#fbf7f5</color>
+    <color name="bgyellowog">#fff9e6</color>
+    <color name="red">#ff392e</color>
+    <color name="red2">#922B21</color>
+    <color name="red3">#FF0000</color>
+    <color name="green">#4CAF50</color>
+
+    <color name="instagram">#e4405f</color>
+    <color name="instagramColorIcon">#C535A6</color>
+    <color name="facebook">#3b5999</color>
+
+    <color name="lightgrey">#C6C6C6</color>
+
+    <color name="navyblue">#091623</color>
+
+
+    <color name="lighterblack">#3b3b3b</color>
+    <color name="switchbg">#757575</color>
+
+    <color name="mapPrimary">#e3a765</color>
+    <color name="mapPrimaryDark">#f6a801</color>
+
+</resources>

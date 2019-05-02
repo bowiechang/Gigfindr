@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+                xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:background="@color/bgyellow1"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="45dp"
+        android:scaleType="fitStart"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/gigfindericonblack"/>
+
+    <!--<Space-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="130dp" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingLeft="24dp"-->
+        <!--android:paddingRight="24dp"-->
+        <!--android:paddingStart="24dp"-->
+        <!--android:text="@string/account_balance"-->
+        <!--android:textSize="12sp" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:baselineAligned="false"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:paddingLeft="24dp"-->
+        <!--android:paddingRight="24dp">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="6dp"-->
+            <!--android:text="@string/balance_currency" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/balance_amount"-->
+            <!--android:textSize="34sp" />-->
+
+    <!--</LinearLayout>-->
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
+</LinearLayout>
