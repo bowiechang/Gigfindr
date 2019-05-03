@@ -43,7 +43,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
 
     //NEW GOOGLE PLACES SDK
-    implementation 'com.google.android.libraries.places:places-compat:1.1.0'
+//    implementation 'com.google.android.libraries.places:places-compat:1.1.0'
+
+    implementation 'com.google.android.libraries.places:places:1.1.0'
 
 //    //PINGPLACEPICKER
 //    implementation ('com.github.rtchagas:pingplacepicker:1.0.0')  {

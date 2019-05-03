@@ -34,17 +34,25 @@ import com.bumptech.glide.request.RequestOptions;
 //import com.google.android.gms.location.places.PlacePhotoMetadataBuffer;
 //import com.google.android.gms.location.places.PlacePhotoMetadataResponse;
 //import com.google.android.gms.location.places.PlacePhotoResponse;
-import com.google.android.gms.location.places.Places;
+//import com.google.android.gms.location.places.Places;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 //import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.compat.GeoDataClient;
-import com.google.android.libraries.places.compat.PlacePhotoMetadata;
-import com.google.android.libraries.places.compat.PlacePhotoMetadataBuffer;
-import com.google.android.libraries.places.compat.PlacePhotoMetadataResponse;
-import com.google.android.libraries.places.compat.PlacePhotoResponse;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.PhotoMetadata;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.FetchPhotoRequest;
+import com.google.android.libraries.places.api.net.FetchPhotoResponse;
+import com.google.android.libraries.places.api.net.FetchPlaceRequest;
+import com.google.android.libraries.places.api.net.FetchPlaceResponse;
+import com.google.android.libraries.places.api.net.PlacesClient;
+//import com.google.android.libraries.places.compat.GeoDataClient;
+//import com.google.android.libraries.places.compat.PlacePhotoMetadata;
+//import com.google.android.libraries.places.compat.PlacePhotoMetadataBuffer;
+//import com.google.android.libraries.places.compat.PlacePhotoMetadataResponse;
+//import com.google.android.libraries.places.compat.PlacePhotoResponse;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,6 +62,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -76,7 +85,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
     private RelativeLayout relativeLayoutSocialMediaInstagram;
     private RelativeLayout relativeLayoutBandTab, relativeLayoutShowTab, relativeLayoutShowTabBody, relativeLayoutDimmer;
 
-    protected GeoDataClient mGeoDataClient;
+//    protected GeoDataClient mGeoDataClient;
 
     private ValueEventListener valueEventListener1;
 
@@ -88,7 +97,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
         Window window = getWindow();
         window.setStatusBarColor(Color.BLACK);
 
-        mGeoDataClient = com.google.android.libraries.places.compat.Places.getGeoDataClient(this);
+//        mGeoDataClient = com.google.android.libraries.places.compat.Places.getGeoDataClient(this);
 
         TextView bandName = findViewById(R.id.tvBandName2);
 
@@ -394,39 +403,93 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
     }
 
     private void getPhotos(String placeid) {
-        final Task<PlacePhotoMetadataResponse> photoMetadataResponse = mGeoDataClient.getPlacePhotos(placeid);
-        photoMetadataResponse.addOnCompleteListener(new OnCompleteListener<PlacePhotoMetadataResponse>() {
+//        final Task<PlacePhotoMetadataResponse> photoMetadataResponse = mGeoDataClient.getPlacePhotos(placeid);
+//        photoMetadataResponse.addOnCompleteListener(new OnCompleteListener<PlacePhotoMetadataResponse>() {
+//            @Override
+//            public void onComplete(@NonNull Task<PlacePhotoMetadataResponse> task) {
+//                // Get the list of photos.
+//                PlacePhotoMetadataResponse photos = task.getResult();
+//                // Get the PlacePhotoMetadataBuffer (metadata for all of the photos).
+//                PlacePhotoMetadataBuffer photoMetadataBuffer = photos.getPhotoMetadata();
+//                if(photoMetadataBuffer.getCount() > 0) {
+//                    // Get the first photo in the list.
+//                    PlacePhotoMetadata photoMetadata = photoMetadataBuffer.get(0);
+//                    // Get the attribution text.
+////                CharSequence attribution = photoMetadata.getAttributions();
+//                    // Get a full-size bitmap for the photo.
+//                    Task<PlacePhotoResponse> photoResponse = mGeoDataClient.getPhoto(photoMetadata);
+//                    photoResponse.addOnCompleteListener(new OnCompleteListener<PlacePhotoResponse>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<PlacePhotoResponse> task) {
+//                            PlacePhotoResponse photo = task.getResult();
+//                            Bitmap bitmap = photo.getBitmap();
+//
+//                            imageViewMap.setImageBitmap(bitmap);
+//                            relativeLayoutDefaultPlaceCover.setVisibility(View.GONE);
+//                        }
+//                    });
+//
+//                }
+//                else{
+//                    int number = new Random().nextInt((3 - 1) + 1) + 1;
+//
+//                    int id = ViewDetailedShowActivity.this.getResources().getIdentifier("drawable/" + "defaultplace" + number, null, ViewDetailedShowActivity.this.getPackageName());
+//                    imageViewMap.setImageResource(id);
+//                    relativeLayoutDefaultPlaceCover.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
+
+        // Specify fields. Requests for photos must always have the PHOTO_METADATAS field.
+        List<Place.Field> fields = Arrays.asList(Place.Field.PHOTO_METADATAS);
+
+        // Get a Place object (this example uses fetchPlace(), but you can also use findCurrentPlace())
+        FetchPlaceRequest placeRequest = FetchPlaceRequest.builder(placeid, fields).build();
+
+        Places.initialize(getApplicationContext(), getString(R.string.google_api_key));
+        final PlacesClient placesClient = Places.createClient(this);
+        placesClient.fetchPlace(placeRequest).addOnSuccessListener(new OnSuccessListener<FetchPlaceResponse>() {
             @Override
-            public void onComplete(@NonNull Task<PlacePhotoMetadataResponse> task) {
-                // Get the list of photos.
-                PlacePhotoMetadataResponse photos = task.getResult();
-                // Get the PlacePhotoMetadataBuffer (metadata for all of the photos).
-                PlacePhotoMetadataBuffer photoMetadataBuffer = photos.getPhotoMetadata();
-                if(photoMetadataBuffer.getCount() > 0) {
-                    // Get the first photo in the list.
-                    PlacePhotoMetadata photoMetadata = photoMetadataBuffer.get(0);
+            public void onSuccess(FetchPlaceResponse fetchPlaceResponse) {
+                Place place = fetchPlaceResponse.getPlace();
+                if(place.getPhotoMetadatas() == null){
+                    int number = new Random().nextInt((3 - 1) + 1) + 1;
+//
+                    int id = ViewDetailedShowActivity.this.getResources().getIdentifier("drawable/" + "defaultplace" + number, null, ViewDetailedShowActivity.this.getPackageName());
+                    imageViewMap.setImageResource(id);
+                    relativeLayoutDefaultPlaceCover.setVisibility(View.VISIBLE);
+//                    Glide.with(context)
+//                            .load(id)
+//                            .into(holder2.ivPlacePic);
+                }
+                else {
+
+
+                    // Get the photo metadata.
+                    PhotoMetadata photoMetadata = place.getPhotoMetadatas().get(0);
+
                     // Get the attribution text.
-//                CharSequence attribution = photoMetadata.getAttributions();
-                    // Get a full-size bitmap for the photo.
-                    Task<PlacePhotoResponse> photoResponse = mGeoDataClient.getPhoto(photoMetadata);
-                    photoResponse.addOnCompleteListener(new OnCompleteListener<PlacePhotoResponse>() {
+                    String attributions = photoMetadata.getAttributions();
+
+                    // Create a FetchPhotoRequest.
+                    FetchPhotoRequest photoRequest = FetchPhotoRequest.builder(photoMetadata)
+                            .build();
+
+                    placesClient.fetchPhoto(photoRequest).addOnSuccessListener(new OnSuccessListener<FetchPhotoResponse>() {
                         @Override
-                        public void onComplete(@NonNull Task<PlacePhotoResponse> task) {
-                            PlacePhotoResponse photo = task.getResult();
-                            Bitmap bitmap = photo.getBitmap();
+                        public void onSuccess(FetchPhotoResponse fetchPhotoResponse) {
+                            Bitmap bitmap = fetchPhotoResponse.getBitmap();
 
                             imageViewMap.setImageBitmap(bitmap);
                             relativeLayoutDefaultPlaceCover.setVisibility(View.GONE);
                         }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
                     });
 
-                }
-                else{
-                    int number = new Random().nextInt((3 - 1) + 1) + 1;
-
-                    int id = ViewDetailedShowActivity.this.getResources().getIdentifier("drawable/" + "defaultplace" + number, null, ViewDetailedShowActivity.this.getPackageName());
-                    imageViewMap.setImageResource(id);
-                    relativeLayoutDefaultPlaceCover.setVisibility(View.VISIBLE);
                 }
             }
         });
