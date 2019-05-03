@@ -8,10 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,13 +22,15 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
-import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +41,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+//import com.rtchagas.pingplacepicker.PingPlacePicker;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -327,33 +326,68 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
     public void selectLocation(){
 
-        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-        Intent intent;
-        try {
-            intent = builder.build(PostShowActivity.this);
-            startActivityForResult(intent, PLACE_PICKER_REQUEST);
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            e.printStackTrace();
-        }
+//        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+//        Intent intent;
+//        try {
+//            intent = builder.build(PostShowActivity.this);
+//            startActivityForResult(intent, PLACE_PICKER_REQUEST);
+//        } catch (GooglePlayServicesRepairableException e) {
+//            e.printStackTrace();
+//        } catch (GooglePlayServicesNotAvailableException e) {
+//            e.printStackTrace();
+//        }
+
+//        String geoaApiKey = getString(R.string.google_geo_api_key);
+//
+//        PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
+//        builder.setAndroidApiKey("AIzaSyCff6g_GDPhdjZKKobHvOurVWAITxUKtZA")
+//                .setGeolocationApiKey(geoaApiKey);
+//        try{
+//            Intent placeIntent = builder.build(this);
+//            startActivityForResult(placeIntent, PLACE_PICKER_REQUEST);
+//        }
+//        catch(Exception e){
+//            System.out.println("keys issut : " +  e.toString());
+//
+//        }
 
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+//        if(requestCode == PLACE_PICKER_REQUEST){
+//            if(resultCode == RESULT_OK){
+//
+//                Place place = PlaceAutocomplete.getPlace(this, data);
+//                String locationName = String.format("%s", place.getName());
+//                String address = String.format("%s", place.getAddress());
+//                LatLng latLng = place.getLatLng();
+//
+//                placeid = place.getId();
+//                latlng = latLng;
+//                tvLocation.setText(locationName);
+//                tvAddress.setText(address);
+//                tvAddress.setVisibility(View.VISIBLE);
+//            }
+//            else{
+////                Toast.makeText(getApplicationContext(), "Error resultcode", Toast.LENGTH_SHORT).show();
+//
+//                Toasty.error(PostShowActivity.this, "Error, please try again", Toast.LENGTH_LONG, true).show();
+//            }
+//        }
+
         if(requestCode == PLACE_PICKER_REQUEST){
             if(resultCode == RESULT_OK){
 
-                Place place = PlaceAutocomplete.getPlace(this, data);
-                String locationName = String.format("%s", place.getName());
-                String address = String.format("%s", place.getAddress());
-                LatLng latLng = place.getLatLng();
+//                Place place = PingPlacePicker.Companion.getPlace(data);
+//                if(place!=null){
+//                    System.out.println("pingplacepicker results: " +  place.toString());
+//                    System.out.println("pingplacepicker results: " +  place.getAddress());
+//                }
+//                else{
+//                    System.out.println("pingplacepicker results: failed");
+//
+//                }
 
-                placeid = place.getId();
-                latlng = latLng;
-                tvLocation.setText(locationName);
-                tvAddress.setText(address);
-                tvAddress.setVisibility(View.VISIBLE);
             }
             else{
 //                Toast.makeText(getApplicationContext(), "Error resultcode", Toast.LENGTH_SHORT).show();

@@ -9,6 +9,8 @@
     <string name="facebook_app_id">171036663755808</string>
     <string name="fb_login_protocol_scheme">fb171036663755808</string>
 
+    <string name="google_geo_api_key">AIzaSyCpkkn3iUI336l3KzFbLUbRSw3oTy7B6CQ</string>
+
     <string name="account_balance">Account Balance</string>
     <string name="balance_currency">$</string>
     <string name="balance_amount">524.99</string>

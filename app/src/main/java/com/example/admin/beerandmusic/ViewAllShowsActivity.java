@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +18,10 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -56,7 +58,7 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
     private Interpolator contentOutInterpolator;
 
     private Window window;
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
     private static final int DURATION_COLOR_CHANGE_MS = 400;
 
     private FrameLayout frameLayout;

@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -15,6 +13,9 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class DecideActivity extends AppCompatActivity implements OnClickListener {
 
@@ -25,6 +26,8 @@ public class DecideActivity extends AppCompatActivity implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decide);
+
+
 
         ConstraintLayout findShow = findViewById(R.id.layoutFindShow);
         ConstraintLayout postShow = findViewById(R.id.layoutPostShow);

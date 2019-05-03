@@ -2,8 +2,6 @@ package com.example.admin.beerandmusic;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +9,10 @@ import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -40,7 +42,7 @@ public class ViewByGenreActivity extends AppCompatActivity {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Show");
 
     private Window window;
-    private android.support.v7.widget.Toolbar toolbar;
+    private Toolbar toolbar;
     private String genre;
 
     private ChildEventListener childEventListener1;

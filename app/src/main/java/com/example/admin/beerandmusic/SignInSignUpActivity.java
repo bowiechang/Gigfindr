@@ -3,9 +3,11 @@ package com.example.admin.beerandmusic;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -26,7 +28,7 @@ public class SignInSignUpActivity extends AppCompatActivity {
 		Window window = getWindow();
 		window.setStatusBarColor(Color.BLACK);
 
-		android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+		Toolbar toolbar = findViewById(R.id.toolbar);
 
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);

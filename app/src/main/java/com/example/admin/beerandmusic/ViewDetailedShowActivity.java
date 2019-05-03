@@ -11,9 +11,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -26,24 +24,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-//import com.google.android.gms.location.places.GeoDataClient;
 //import com.google.android.gms.location.places.PlacePhotoMetadata;
 //import com.google.android.gms.location.places.PlacePhotoMetadataBuffer;
 //import com.google.android.gms.location.places.PlacePhotoMetadataResponse;
 //import com.google.android.gms.location.places.PlacePhotoResponse;
-//import com.google.android.gms.location.places.Places;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+//import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.compat.GeoDataClient;
 import com.google.android.libraries.places.compat.PlacePhotoMetadata;
 import com.google.android.libraries.places.compat.PlacePhotoMetadataBuffer;
 import com.google.android.libraries.places.compat.PlacePhotoMetadataResponse;
 import com.google.android.libraries.places.compat.PlacePhotoResponse;
-import com.google.android.libraries.places.compat.Places;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -87,7 +88,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
         Window window = getWindow();
         window.setStatusBarColor(Color.BLACK);
 
-        mGeoDataClient = Places.getGeoDataClient(this.getApplicationContext());
+        mGeoDataClient = com.google.android.libraries.places.compat.Places.getGeoDataClient(this);
 
         TextView bandName = findViewById(R.id.tvBandName2);
 

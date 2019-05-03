@@ -8,7 +8,7 @@
                 android:focusableInTouchMode="true"
                 tools:context="com.example.admin.beerandmusic.DecideActivity">
 
-        <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,8 +23,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintVertical_bias="0.719">
 
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/layoutPostShow"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutPostShow"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:background="@color/bgyellow1"
@@ -78,12 +78,11 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:layout_marginRight="8dp"
                             app:layout_constraintRight_toRightOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </android.support.constraint.ConstraintLayout>
 
-
-                    <android.support.constraint.ConstraintLayout
-                        android:layout_width="match_parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:background="@color/black"
                         android:id="@+id/layoutFindShow"
@@ -137,7 +136,7 @@
                             android:layout_marginRight="8dp"
                             app:layout_constraintRight_toRightOf="parent"/>
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
@@ -158,8 +157,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"/>
 
-
-        </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/spinnerkitloader"
