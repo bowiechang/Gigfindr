@@ -14,7 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class ThirdPartyActivity extends AppCompatActivity implements OnClickListener {
 
-    TextView tvlib1, tvlib2, tvlib3, tvlib4, tvlib5;
+    TextView tvlib1, tvlib2, tvlib3, tvlib4, tvlib5, tvlib6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,14 @@ public class ThirdPartyActivity extends AppCompatActivity implements OnClickList
         tvlib2 = findViewById(R.id.tvlib2);
         tvlib4 = findViewById(R.id.tvlib4);
         tvlib5 = findViewById(R.id.tvlib5);
+        tvlib6 = findViewById(R.id.tvlib6);
 
         tvlib1.setOnClickListener(this);
         tvlib2.setOnClickListener(this);
         tvlib3.setOnClickListener(this);
         tvlib4.setOnClickListener(this);
         tvlib5.setOnClickListener(this);
+        tvlib6.setOnClickListener(this);
 
 
 
@@ -76,6 +78,10 @@ public class ThirdPartyActivity extends AppCompatActivity implements OnClickList
         }
         else if(view == tvlib5){
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/polyak01/IconSwitch"));
+            startActivity(browserIntent);
+        }
+        else if(view == tvlib6){
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/rtchas/pingplacepicker"));
             startActivity(browserIntent);
         }
     }

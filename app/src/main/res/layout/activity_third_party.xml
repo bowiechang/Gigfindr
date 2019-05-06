@@ -135,4 +135,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvlib4"/>
 
+    <TextView
+        android:id="@+id/tvlib6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="@string/lib6"
+        android:fontFamily="@font/roboto_condensed_bold_test_download"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvlib5"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

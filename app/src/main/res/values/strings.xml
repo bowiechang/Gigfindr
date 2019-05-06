@@ -10,6 +10,7 @@
     <string name="fb_login_protocol_scheme">fb171036663755808</string>
 
     <string name="google_geo_api_key">AIzaSyCpkkn3iUI336l3KzFbLUbRSw3oTy7B6CQ</string>
+    <string name="google_geo_api_key_new">AIzaSyCff6g_GDPhdjZKKobHvOurVWAITxUKtZA</string>
 
     <string name="account_balance">Account Balance</string>
     <string name="balance_currency">$</string>
@@ -177,6 +178,7 @@
     <string name="lib3">&#8226; <u>Android-SpinKit</u></string>
     <string name="lib4">&#8226; <u>ParallaxRecyclerView</u></string>
     <string name="lib5">&#8226; <u>IconSwitch</u></string>
+    <string name="lib6">&#8226; <u>PingPlacePicker</u></string>
 
     <string name="privacypolicy">
         <u><b>About Privacy Policy</b></u>

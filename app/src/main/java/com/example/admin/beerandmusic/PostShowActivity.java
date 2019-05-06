@@ -33,6 +33,8 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -41,6 +43,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rtchagas.pingplacepicker.PingPlacePicker;
 //import com.rtchagas.pingplacepicker.PingPlacePicker;
 
 import java.util.ArrayList;
@@ -60,6 +63,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
     private int day, month, year, hour, mins;
     private String uid;
+    private Boolean pppchecker = false;
 
     Calendar calendar = Calendar.getInstance();
 
@@ -126,6 +130,12 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        if(!Places.isInitialized()){
+            Places.initialize(getApplicationContext(), getString(R.string.google_geo_api_key_new));
+            System.out.println("Postshow:: places is init");
+            System.out.println("Postshow:: places is init: " + Places.isInitialized());
+        }
 
         Window window = getWindow();
         window.setStatusBarColor(Color.BLACK);
@@ -326,30 +336,20 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
     public void selectLocation(){
 
-//        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-//        Intent intent;
-//        try {
-//            intent = builder.build(PostShowActivity.this);
-//            startActivityForResult(intent, PLACE_PICKER_REQUEST);
-//        } catch (GooglePlayServicesRepairableException e) {
-//            e.printStackTrace();
-//        } catch (GooglePlayServicesNotAvailableException e) {
-//            e.printStackTrace();
-//        }
+        pppchecker = true;
 
-//        String geoaApiKey = getString(R.string.google_geo_api_key);
-//
-//        PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
-//        builder.setAndroidApiKey("AIzaSyCff6g_GDPhdjZKKobHvOurVWAITxUKtZA")
-//                .setGeolocationApiKey(geoaApiKey);
-//        try{
-//            Intent placeIntent = builder.build(this);
-//            startActivityForResult(placeIntent, PLACE_PICKER_REQUEST);
-//        }
-//        catch(Exception e){
-//            System.out.println("keys issut : " +  e.toString());
-//
-//        }
+        String geoApiKey = getString(R.string.google_geo_api_key_new);
+        PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
+        builder.setAndroidApiKey(getString(R.string.google_api_key))
+                .setGeolocationApiKey(geoApiKey);
+        try{
+            Intent placeIntent = builder.build(this);
+            startActivityForResult(placeIntent, PLACE_PICKER_REQUEST);
+        }
+        catch(Exception e){
+            System.out.println("keys issut : " +  e.toString());
+
+        }
 
     }
 
@@ -378,15 +378,22 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         if(requestCode == PLACE_PICKER_REQUEST){
             if(resultCode == RESULT_OK){
 
-//                Place place = PingPlacePicker.Companion.getPlace(data);
-//                if(place!=null){
-//                    System.out.println("pingplacepicker results: " +  place.toString());
-//                    System.out.println("pingplacepicker results: " +  place.getAddress());
-//                }
-//                else{
-//                    System.out.println("pingplacepicker results: failed");
-//
-//                }
+                Place place = PingPlacePicker.Companion.getPlace(data);
+                if(place!=null){
+                    String locationName = String.format("%s", place.getName());
+                String address = String.format("%s", place.getAddress());
+                LatLng latLng = place.getLatLng();
+
+                placeid = place.getId();
+                latlng = latLng;
+                tvLocation.setText(locationName);
+                tvAddress.setText(address);
+                tvAddress.setVisibility(View.VISIBLE);
+                }
+                else{
+                    Toasty.error(PostShowActivity.this, "Error, please try again", Toast.LENGTH_LONG, true).show();
+
+                }
 
             }
             else{
@@ -394,6 +401,8 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
                 Toasty.error(PostShowActivity.this, "Error, please try again", Toast.LENGTH_LONG, true).show();
             }
+
+            pppchecker = false;
         }
     }
 
@@ -580,7 +589,12 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
     public void onClick(View view) {
 
         if(view == llplace) {
-            selectLocation();
+            if(!pppchecker) {
+                selectLocation();
+            }
+            else{
+                Toasty.normal(PostShowActivity.this, "Loading please wait", Toast.LENGTH_SHORT).show();
+            }
         }
         else if(view == lldate){
             getDate();
