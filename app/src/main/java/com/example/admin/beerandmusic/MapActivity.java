@@ -603,8 +603,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         return new SimpleItem(screenIcons[position], screenTitles[position])
                 .withIconTint(color(R.color.black))
                 .withTextTint(color(R.color.black))
-                .withSelectedIconTint(color(R.color.tester2))
-                .withSelectedTextTint(color(R.color.tester2));
+                .withSelectedIconTint(color(R.color.yellow1))
+                .withSelectedTextTint(color(R.color.yellow1));
     }
 
     private String[] loadScreenTitles() {

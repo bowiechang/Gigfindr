@@ -13,7 +13,7 @@
         android:layout_height="150dp"
         android:layout_marginTop="45dp"
         android:scaleType="fitStart"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="20dp"
         android:src="@drawable/gigfindericonblack"/>
 
     <!--<Space-->

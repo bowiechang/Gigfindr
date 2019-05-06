@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/black"
-                android:alpha="0.479"/>
+                android:alpha="0.2"/>
 
             //black gradient dim
             <RelativeLayout
@@ -210,8 +210,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="40sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/fjalla_one_test"
-                    android:layout_marginTop="15dp"/>
+                    android:fontFamily="@font/fjalla_one_test"/>
 
                 <!--//date-->
                 <!--<TextView-->
@@ -283,7 +282,7 @@
                 <ImageView
                     android:id="@+id/ivMapImg"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="110dp"
                     android:layout_marginTop="5dp"
                     android:scaleType="centerCrop"
                     android:layout_below="@id/tvAddress"/>
@@ -292,7 +291,7 @@
                 <RelativeLayout
                     android:id="@+id/defaultImageCover"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="110dp"
                     android:layout_marginTop="5dp"
                     android:visibility="invisible"
                     android:layout_below="@id/tvAddress">

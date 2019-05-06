@@ -81,10 +81,14 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
         int month = Integer.parseInt(split[1]);
 
         String date = dayOfTheWeek.concat(" " + split[0].concat(" ").concat(monthValue[(month-1)]));
+        String time = list.get(position).getStartTime().concat(" - ").concat(list.get(position).getEndTime());
+        String[] splitaddress = list.get(position).getAddress().split(",");
 
         holder.tvLocation.setText(list.get(position).getLocationName());
         holder.tvBandName.setText(list.get(position).getBandName());
         holder.tvDate.setText(date);
+        holder.tvTime.setText(time);
+        holder.tvAddress.setText(splitaddress[0]);
 
         if(list.get(position).getEntryFee().equalsIgnoreCase("free") || list.get(position).getEntryFee().equalsIgnoreCase("0")){
             holder.tvEntryFee.setText(R.string.free_caps);

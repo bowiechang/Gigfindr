@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ViewAllShowsHolder extends ParallaxViewHolder{
 
-    protected TextView tvBandName, tvLocation, tvAddress, tvDate, tvStartTime, tvEndTime, tvEntryFee, tvGenre;
+    protected TextView tvBandName, tvLocation, tvAddress, tvDate, tvTime, tvEntryFee, tvGenre;
     public Context context;
 
     public ViewAllShowsHolder(View itemview, List<ShowDetails> list, Context context){
@@ -26,6 +26,8 @@ public class ViewAllShowsHolder extends ParallaxViewHolder{
         tvLocation = itemview.findViewById(R.id.allshowlist_locationName);
         tvDate = itemview.findViewById(R.id.allshowlist_date);
         tvEntryFee = itemview.findViewById(R.id.allshowlist_fee);
+        tvTime = itemview.findViewById(R.id.allshowlist_time);
+        tvAddress = itemview.findViewById(R.id.allshowlist_address);
 
     }
 
