@@ -49,12 +49,12 @@
 
         <fragment
             android:id="@+id/map"
-                  android:name="com.google.android.gms.maps.SupportMapFragment"
-                  xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:tools="http://schemas.android.com/tools"
-                  android:layout_width="match_parent"
-                  tools:context="com.example.admin.beerandmusic.MapActivity"
-                  android:layout_height="match_parent"/>
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            tools:context="com.example.admin.beerandmusic.MapActivity"
+            android:layout_height="match_parent"/>
 
         <FrameLayout
             android:id="@+id/framelayout_maptouch"

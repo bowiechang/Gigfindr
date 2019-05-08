@@ -40,7 +40,7 @@
                     android:fontFamily="@font/fjalla_one_test"
                     android:text="Show Details"
                     android:textColor="@color/black"
-                    android:textSize="30sp"
+                    android:textSize="27sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
@@ -145,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
                     android:layout_marginTop="45dp"
+                    android:layout_above="@id/tvGenre"
                     android:textColor="@color/yellow1"
                     android:fontFamily="@font/fjalla_one_test"/>
 
@@ -153,22 +154,23 @@
                     android:id="@+id/tvGenre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvBandName2"
+                    android:layout_above="@id/tvAboutBand"
                     android:textSize="17sp"
                     android:textColor="@color/yellow1"
                     android:fontFamily="@font/roboto_medium_test"/>
 
                 //about
-
                 <TextView
                     android:id="@+id/tvAboutBand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvGenre"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto_condensed_regular_download"
                     android:textColor="@color/white_greyish"
+                    android:layout_above="@id/relativeLayoutSocialMediaInstagram"
                     android:textSize="15sp"/>
+
+
 
             </RelativeLayout>
 

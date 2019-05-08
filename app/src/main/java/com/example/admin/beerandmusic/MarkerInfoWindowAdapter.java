@@ -1,12 +1,23 @@
 package com.example.admin.beerandmusic;
 
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.model.Marker;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -20,6 +31,9 @@ public class MarkerInfoWindowAdapter implements InfoWindowAdapter {
     private LayoutInflater inflater = null;
 
     private HashMap<String, ShowDetails> detailsHashMap = new HashMap<>();
+    private DatabaseReference databaseReferenceUser = FirebaseDatabase.getInstance().getReference();
+
+
 
     MarkerInfoWindowAdapter(LayoutInflater inflater, HashMap<String, ShowDetails> hashMap){
         this.inflater = inflater;
@@ -60,7 +74,23 @@ public class MarkerInfoWindowAdapter implements InfoWindowAdapter {
         else{
             entryFee.setText("$ " + showDetails.getEntryFee());
         }
-        address.setText(showDetails.getAddress());
+
+        String[] splitaddress = showDetails.getAddress().split(",");
+        address.setText(splitaddress[0]);
+
+//        databaseReferenceUser.orderByChild("User").orderByKey().equalTo(showDetails.getUserid()).addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
+//                Log.d("markerinfowindow:: userdetails.name: ", userDetails.getName());
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         return v;
     }

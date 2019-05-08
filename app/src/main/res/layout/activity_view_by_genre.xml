@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="27dp"
-                    android:textSize="30sp"
+                    android:textSize="27sp"
                     android:fontFamily="@font/fjalla_one_test"
                     android:text="@string/viewallshowsactivity_upcomingshows"
                     android:textColor="@color/black"

@@ -60,39 +60,46 @@
         </activity>
         <activity
             android:name=".DecideActivity"
-            android:theme="@style/Translucent"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
         </activity>
         <activity
             android:name=".SignInSignUpActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".PostShowActivity">
-
-
-        </activity>
-        <activity android:name=".ViewMyShowsActivity">
+        <activity android:name=".PostShowActivity"
+            android:screenOrientation="portrait">
 
 
         </activity>
-        <activity android:name=".ViewAllShowsActivity">
+        <activity android:name=".ViewMyShowsActivity"
+            android:screenOrientation="portrait">
+
+
+        </activity>
+        <activity android:name=".ViewAllShowsActivity"
+            android:screenOrientation="portrait">
 
 
 
 
         </activity>
         <activity
-            android:name=".MapActivity">
+            android:name=".MapActivity"
+            android:screenOrientation="portrait">
 
 
 
 
         </activity>
-        <activity android:name=".ViewDetailedShowActivity">
+        <activity android:name=".ViewDetailedShowActivity"
+            android:screenOrientation="portrait">
 
 
         </activity>
-        <activity android:name=".DeleteAccountActivity">
+        <activity android:name=".DeleteAccountActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <receiver android:name=".Receiver">
@@ -103,29 +110,34 @@
 
         <activity
             android:name=".AccountActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
 
 
         </activity>
-        <activity android:name=".ViewByGenreActivity">
+        <activity android:name=".ViewByGenreActivity"
+            android:screenOrientation="portrait">
         </activity>
 
 
-        <activity android:name=".AboutAppActivity">
+        <activity android:name=".AboutAppActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".PrivacyPolicyActivity">
+        <activity android:name=".PrivacyPolicyActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".TermsAndConditionActivity">
+        <activity android:name=".TermsAndConditionActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".ThirdPartyActivity">
+        <activity android:name=".ThirdPartyActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".LocationCheckerActivity">
-        </activity>
-        <activity android:name=".tester2">
-
+        <activity android:name=".LocationCheckerActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.facebook.CustomTabActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
         </activity>
 

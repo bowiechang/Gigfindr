@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="350dp"
-        android:layout_height="320dp"
+        android:layout_height="270dp"
         android:layout_centerInParent="true"
         android:background="@color/bgyellow1"
         android:padding="20dp">
@@ -16,10 +16,9 @@
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="@string/accountactivity_removeAccount"
             android:fontFamily="@font/roboto_slab_bold_download"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textColor="@color/black"/>
 
 

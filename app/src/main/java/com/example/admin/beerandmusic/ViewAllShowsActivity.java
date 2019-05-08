@@ -144,7 +144,7 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
 
                     targetTranslation[0] = 0;
                     interpolator[0] = contentInInterpolator;
-                    title.setText("Upcoming shows");
+                    title.setText("Upcoming gigs");
                     if(list.isEmpty()){
 //                        tvNoShow.setVisibility(View.VISIBLE);
                         llNoShow.setVisibility(View.VISIBLE);

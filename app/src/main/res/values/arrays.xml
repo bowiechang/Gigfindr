@@ -2,7 +2,7 @@
 <resources>
     <string-array name="ld_activityScreenTitlesLoggedIn">
         <item>Find nearby shows</item>
-        <item>Upcoming shows</item>
+        <item>Upcoming gigs</item>
         <item>Account</item>
         <item>My shows</item>
         <!--<item />-->
@@ -11,7 +11,7 @@
 
     <string-array name="ld_activityScreenTitlesLoggedOut">
         <item>Find nearby shows</item>
-        <item>Upcoming shows</item>
+        <item>Upcoming gigs</item>
         <item>Share your shows</item>
         <!--<item />-->
         <item>About app</item>

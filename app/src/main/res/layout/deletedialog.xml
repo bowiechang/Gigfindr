@@ -23,7 +23,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="35dp"
-            android:text="Are you sure you want to delete show?"
+            android:text="Are you sure you want to delete gig?"
             android:textColor="@color/black"/>
 
         <LinearLayout

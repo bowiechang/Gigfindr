@@ -68,6 +68,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import es.dmoral.toasty.Toasty;
+
 public class ViewDetailedShowActivity extends AppCompatActivity implements OnClickListener {
 
     private Toolbar toolbar;
@@ -110,7 +112,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
         relativeLayoutShowTab.setOnClickListener(this);
         relativeLayoutSocialMediaInstagram = findViewById(R.id.relativeLayoutSocialMediaInstagram);
         relativeLayoutSocialMediaInstagram.setOnClickListener(this);
-        relativeLayoutSocialMediaInstagram.setVisibility(View.GONE);
+        relativeLayoutSocialMediaInstagram.setVisibility(View.INVISIBLE);
 
 
         imageView = findViewById(R.id.imageViewBandpic);
@@ -317,6 +319,8 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
 
 
         if(view.getId() == R.id.buttonGetDirections) {
+
+            Toasty.normal(this, "Loading Google Map", Toast.LENGTH_SHORT).show();
 
             //open google map navigation mode
             Uri gmmIntentUri = Uri.parse("geo:" + showDetails.getLatLng() + "?z=1&q=" + showDetails.getLocationName());

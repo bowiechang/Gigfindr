@@ -71,6 +71,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
             android:layout_toRightOf="@id/lldate"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
             //NAME
@@ -79,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:textAllCaps="true"
                 android:maxLength="25"
                 android:textColor="@color/white"
@@ -90,7 +91,7 @@
                 android:id="@+id/textViewAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/roboto_light_download"/>
 

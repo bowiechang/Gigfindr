@@ -23,7 +23,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="35dp"
-            android:text="Are you sure you want to logout"
+            android:text="Are you sure you want to logout?"
             android:textColor="@color/black"/>
 
         <LinearLayout

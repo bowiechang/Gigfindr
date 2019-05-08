@@ -68,7 +68,7 @@ public class ViewByGenreActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         title = findViewById(R.id.toolbar_title);
-        title.setText("Upcoming " + genre + " shows");
+        title.setText("Upcoming " + genre + " gigs");
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

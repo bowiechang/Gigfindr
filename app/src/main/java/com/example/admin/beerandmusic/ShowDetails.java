@@ -58,9 +58,9 @@ public class ShowDetails{
         return bandName;
     }
 
-//    public void setBandName(String bandName) {
-//        this.bandName = bandName;
-//    }
+    public void setBandName(String bandName) {
+        this.bandName = bandName;
+    }
 
     public String getLocationName() {
         return locationName;

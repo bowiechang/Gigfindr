@@ -1069,13 +1069,9 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
 
 //                Intent myIntent = new Intent(AccountActivity.this, MapActivity.class);
 //                AccountActivity.this.startActivity(myIntent);
-                if(prevAct.equalsIgnoreCase("signupact")){
+
                     Intent intent = new Intent(view.getContext(), MapActivity.class);
                     startActivity(intent);
-                }
-                else {
-                    finish();
-                }
 
             }
         });
@@ -1228,8 +1224,39 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                     @Override
                     public void onClick(View view) {
                         tvIGstatus.setText(etIGname.getText().toString());
-                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                        dialog.dismiss();
+
+
+                        if(!tvIGstatus.getText().toString().equals("")){
+                            String name, about, igName;
+                            name = editTextName.getText().toString();
+                            about = editTextAbout.getText().toString();
+                            igName = tvIGstatus.getText().toString();
+
+                            userDetails = new UserDetails(name, about, igName);
+
+                            databaseReference.child("User").child(uid).setValue(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    relativeLayoutSaveEditLoader1.setVisibility(View.GONE);
+                                    linearLayoutSaveEdit.setVisibility(View.GONE);
+                                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                                    dialog.dismiss();
+                                    Toasty.success(AccountActivity.this, "Instagram saved", Toast.LENGTH_SHORT, true).show();
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toasty.error(AccountActivity.this, "Save unsuccessful, " + e.getMessage().toString(), Toast.LENGTH_SHORT, true).show();
+
+                                }
+                            });
+                        }
+                        else{
+                            Toasty.error(AccountActivity.this, "Please input Instagram handler", Toast.LENGTH_SHORT, true).show();
+                        }
+
+
                     }
                 });
 
@@ -1384,13 +1411,34 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                     public void onSuccess(Void aVoid) {
                                         relativeLayoutSaveEditLoader1.setVisibility(View.GONE);
                                         linearLayoutSaveEdit.setVisibility(View.GONE);
-                                        Toasty.success(AccountActivity.this, "Save Successful", Toast.LENGTH_SHORT, true).show();
+                                        Toasty.success(AccountActivity.this, "Save successful", Toast.LENGTH_SHORT, true).show();
 
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toasty.error(AccountActivity.this, "Save Unsuccessful, " + e.getMessage().toString(), Toast.LENGTH_SHORT, true).show();
+                                        Toasty.error(AccountActivity.this, "Save unsuccessful, " + e.getMessage().toString(), Toast.LENGTH_SHORT, true).show();
+
+                                    }
+                                });
+
+                                databaseReference.child("Show").addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+                                            Log.d("accact:: child.getkey: ", child.getKey());
+                                            ShowDetails showDetails = child.getValue(ShowDetails.class);
+                                            Log.d("accact:: showdets ", showDetails.toString());
+                                            if (showDetails.getUserid().equals(uid)) {
+                                                showDetails.setBandName(name);
+                                                databaseReference.child("Show").child(child.getKey()).setValue(showDetails);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
                                 });
@@ -1407,7 +1455,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                 linearLayoutSaveEdit.setVisibility(View.GONE);
 
                                 //and displaying error message
-                                Toasty.error(AccountActivity.this, "Saved failed, please try again", Toast.LENGTH_LONG, true).show();
+                                Toasty.error(AccountActivity.this, "Save failed, please try again", Toast.LENGTH_LONG, true).show();
 
                             }
                         })
@@ -1444,10 +1492,31 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                 igName = tvIGstatus.getText().toString();
                                 if (!igName.equalsIgnoreCase("Connect")) {
                                     userDetails = new UserDetails(name, about, igName);
-                                } else {
+                                } else{
                                     userDetails = new UserDetails(name, about, "");
                                 }
                                 databaseReference.child("User").child(uid).setValue(userDetails);
+
+                                databaseReference.child("Show").addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+                                            Log.d("accact:: child.getkey: ", child.getKey());
+                                            ShowDetails showDetails = child.getValue(ShowDetails.class);
+                                            Log.d("accact:: showdets ", showDetails.toString());
+                                            if (showDetails.getUserid().equals(uid)) {
+                                                showDetails.setBandName(name);
+                                                databaseReference.child("Show").child(child.getKey()).setValue(showDetails);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
 
                                 final Handler handler = new Handler();
                                 new Thread(new Runnable() {
@@ -1464,7 +1533,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                                 relativeLayoutSaveEditLoader1.setVisibility(View.GONE);
                                                 linearLayoutSaveEdit.setVisibility(View.GONE);
 
-                                                Toasty.success(AccountActivity.this, "Save Successful", Toast.LENGTH_SHORT, true).show();
+                                                Toasty.success(AccountActivity.this, "Save successful", Toast.LENGTH_SHORT, true).show();
 
                                             }
                                         });
@@ -1486,7 +1555,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
             case android.R.id.home:
                 Intent intent = new Intent(AccountActivity.this, MapActivity.class);
                 startActivity(intent);
-                finish();
+//                finish();
                 return true;
 
             default:
@@ -1522,6 +1591,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        Intent intent = new Intent(AccountActivity.this, MapActivity.class);
+        startActivity(intent);
     }
 }
