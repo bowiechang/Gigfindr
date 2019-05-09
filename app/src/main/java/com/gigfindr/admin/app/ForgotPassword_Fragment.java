@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,8 @@ public class ForgotPassword_Fragment extends Fragment implements
 
 	private static EditText emailId;
 	private static Button submit;
+	private static FragmentManager fragmentManager;
+
 
 	private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -44,6 +47,8 @@ public class ForgotPassword_Fragment extends Fragment implements
 
 	// Initialize the views
 	private void initViews() {
+		fragmentManager = getActivity().getSupportFragmentManager();
+
 		emailId = view.findViewById(R.id.registered_emailid);
 		submit = view.findViewById(R.id.forgot_button);
 	}
@@ -74,6 +79,13 @@ public class ForgotPassword_Fragment extends Fragment implements
 			public void onComplete(@NonNull Task<Void> task) {
 				if(task.isSuccessful()){
 					Toasty.success(getActivity().getBaseContext(), "Reset is done, please check your email", Toast.LENGTH_LONG, true).show();
+
+					fragmentManager
+							.beginTransaction()
+							.setCustomAnimations(R.anim.right_enter, R.anim.left_out)
+							.replace(R.id.frameContainer,
+									new Login_Fragment(),
+									Utils.Login_Fragment).commit();
 
 				}
 				else if(task.isCanceled()){
