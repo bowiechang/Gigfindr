@@ -82,8 +82,8 @@ public class ShowDetails{
         return latLng;
     }
 
-//    public void setLatLng(String latLng) {
-//        this.latLng = latLng;
+//    public void setLatLng(String latLngRetrieved) {
+//        this.latLngRetrieved = latLngRetrieved;
 //    }
 
     public String getDate() {

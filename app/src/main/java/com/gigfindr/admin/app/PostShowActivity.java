@@ -65,7 +65,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
     Calendar calendar = Calendar.getInstance();
 
-    LatLng latlng;
+    LatLng latlngFromPicker;
 
     String startTime = "";
     String endTime = "";
@@ -73,7 +73,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
     String address = "";
     String entryFee = "";
     String date2 = "";
-    String latLng = "";
+    String latLngRetrieved = "";
     String editedLatLng = "";
     String genre = "";
     String placeid = "";
@@ -200,7 +200,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
                         tvAddress.setVisibility(View.VISIBLE);
                         tvAddress.setText(showDetails.getAddress());
                         date2 = showDetails.getDate();
-                        latLng = showDetails.getLatLng();
+                        latLngRetrieved = showDetails.getLatLng();
                         tvFee.setText(showDetails.getEntryFee());
                         tvGenre.setText(showDetails.getGenre());
 
@@ -358,10 +358,10 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 //                Place place = PlaceAutocomplete.getPlace(this, data);
 //                String locationName = String.format("%s", place.getName());
 //                String address = String.format("%s", place.getAddress());
-//                LatLng latLng = place.getLatLng();
+//                LatLng latLngRetrieved = place.getLatLng();
 //
 //                placeid = place.getId();
-//                latlng = latLng;
+//                latlngFromPicker = latLngRetrieved;
 //                tvLocation.setText(locationName);
 //                tvAddress.setText(address);
 //                tvAddress.setVisibility(View.VISIBLE);
@@ -383,7 +383,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
                 LatLng latLng = place.getLatLng();
 
                 placeid = place.getId();
-                latlng = latLng;
+                latlngFromPicker = latLng;
                 tvLocation.setText(locationName);
                 tvAddress.setText(address);
                 tvAddress.setVisibility(View.VISIBLE);
@@ -492,8 +492,8 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
             entryFee = "";
         }
         String date = date2;
-        if(latlng!=null) {
-            latLng = latlng.toString();
+        if(latlngFromPicker !=null) {
+            latLngRetrieved = latlngFromPicker.toString();
         }
         genre = tvGenre.getText().toString();
         if(genre.equalsIgnoreCase("genre")){
@@ -501,7 +501,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         }
         editedLatLng = "";
 
-        if(startTime.equals("") || endTime.equals("") || locationName.equals("") || address.equals("") || entryFee.equals("") || date.equals("") || latLng.equals("") || genre.equals("")) {
+        if(startTime.equals("") || endTime.equals("") || locationName.equals("") || address.equals("") || entryFee.equals("") || date.equals("") || latLngRetrieved.equals("") || genre.equals("")) {
 
 //            Toast.makeText(PostShowActivity.this, "Empty fields please check", Toast.LENGTH_SHORT).show();
             Toasty.Config.getInstance()
@@ -513,7 +513,7 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
             if (key == "") {
 
                 if (entryFee.matches("\\d+(?:\\.\\d+)?") || entryFee.equalsIgnoreCase("free")){
-                    String newll = latlng.toString().replace("lat/lng: (", "").replace(")", "");
+                    String newll = latlngFromPicker.toString().replace("lat/lng: (", "").replace(")", "");
 
                     ShowDetails showDetails = new ShowDetails(locationName, address, newll, date, startTime, endTime, entryFee, uid, bandName, genre, placeid);
                     databaseReference.child("Show").push().setValue(showDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -533,14 +533,15 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
             }
             else{
 
-                if(!showDetails.getPlaceid().isEmpty() || !showDetails.getPlaceid().equals("")){
-                    placeid = showDetails.getPlaceid();
-                }
-
                 if (entryFee.equalsIgnoreCase("0") || entryFee.equalsIgnoreCase("free")) {
-
-
-                    ShowDetails showDetails = new ShowDetails(locationName, address, latLng, date, startTime, endTime, entryFee, uid, bandName, genre, placeid);
+                    String llTouse;
+                    if(latlngFromPicker == null){
+                        llTouse = latLngRetrieved;
+                    }
+                    else{
+                        llTouse = latlngFromPicker.toString().replace("lat/lng: (", "").replace(")", "");
+                    }
+                    ShowDetails showDetails = new ShowDetails(locationName, address, llTouse, date, startTime, endTime, entryFee, uid, bandName, genre, placeid);
                     databaseReference.child("Show").child(key).setValue(showDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

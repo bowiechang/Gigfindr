@@ -390,10 +390,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 //        Log.d("mLastLocation", mLastLocation.toString());
 //
 //        //Place current location
-//        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+//        LatLng latLngRetrieved = new LatLng(location.getLatitude(), location.getLongitude());
 //
 //        //move map camera
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngRetrieved));
 //        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
 //
 //        //stop location updates
