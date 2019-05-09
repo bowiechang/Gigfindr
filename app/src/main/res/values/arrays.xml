@@ -4,7 +4,7 @@
         <item>Find nearby shows</item>
         <item>Upcoming gigs</item>
         <item>Account</item>
-        <item>My shows</item>
+        <item>My gigs</item>
         <!--<item />-->
         <item>About app</item>
     </string-array>
@@ -12,7 +12,7 @@
     <string-array name="ld_activityScreenTitlesLoggedOut">
         <item>Find nearby shows</item>
         <item>Upcoming gigs</item>
-        <item>Share your shows</item>
+        <item>Share your gigs</item>
         <!--<item />-->
         <item>About app</item>
     </string-array>
