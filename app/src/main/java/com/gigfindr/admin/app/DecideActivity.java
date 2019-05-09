@@ -27,8 +27,6 @@ public class DecideActivity extends AppCompatActivity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decide);
 
-
-
         ConstraintLayout findShow = findViewById(R.id.layoutFindShow);
         ConstraintLayout postShow = findViewById(R.id.layoutPostShow);
 
@@ -40,14 +38,6 @@ public class DecideActivity extends AppCompatActivity implements OnClickListener
 
         Window window = getWindow();
         window.setStatusBarColor(Color.BLACK);
-
-        ImageView imageView = findViewById(R.id.imageview_logo); //Declare imageview logo
-        Glide.with(this).load(R.drawable.yourlogo).into(imageView); //load image with glide
-
-        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(imageView, "alpha",  1f, 0);
-        fadeOut.setDuration(300);
-        fadeOut.start();
-
     }
 
     @Override

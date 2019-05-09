@@ -21,13 +21,6 @@
         <item name="colorControlActivated">@color/black</item>
     </style>
 
-    <!-- ToolBar -->
-    <style name="ToolBarStyle" parent="AppTheme">
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
-        <item name="actionMenuTextColor">@android:color/white</item>
-    </style>
-
     <style name="ToolbarStyleForLogin" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->
         <item name="colorControlNormal">@color/white_greyish</item>
@@ -41,10 +34,6 @@
         <!--<item name="android:windowAnimationStyle">@android:style/Animation</item>-->
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    </style>
-
-    <style name="noAnimTheme" parent="AppTheme">
-        <item name="android:windowAnimationStyle">@null</item>
     </style>
 
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">

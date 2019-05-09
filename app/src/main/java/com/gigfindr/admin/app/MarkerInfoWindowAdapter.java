@@ -68,19 +68,6 @@ public class MarkerInfoWindowAdapter implements InfoWindowAdapter {
         String[] splitaddress = showDetails.getAddress().split(",");
         address.setText(splitaddress[0]);
 
-//        databaseReferenceUser.orderByChild("User").orderByKey().equalTo(showDetails.getUserid()).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
-//                Log.d("markerinfowindow:: userdetails.name: ", userDetails.getName());
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
 
         return v;
     }

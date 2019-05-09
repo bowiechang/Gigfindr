@@ -478,7 +478,11 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
                         public void onSuccess(FetchPhotoResponse fetchPhotoResponse) {
                             Bitmap bitmap = fetchPhotoResponse.getBitmap();
 
-                            imageViewMap.setImageBitmap(bitmap);
+                            Glide.with(getApplication().getApplicationContext())
+                                    .load(bitmap)
+                                    .into(imageViewMap);
+
+//                            imageViewMap.setImageBitmap(bitmap);
                             relativeLayoutDefaultPlaceCover.setVisibility(View.GONE);
                         }
                     }).addOnFailureListener(new OnFailureListener() {

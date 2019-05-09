@@ -187,7 +187,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
                 buildGoogleApiClient();
                 mMap.setMyLocationEnabled(true);
-//
             }
             else{
                 checkLocationPermission();
@@ -272,8 +271,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             // permissions this app might request
         }
     }
-
-    //
 
     public void read() {
         mDatabase.child("Show").addValueEventListener(new ValueEventListener() {
@@ -659,8 +656,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setElevation(3.0f);
-//        toolbar.getBackground().setAlpha(0);
 
         window = getWindow();
         window.setStatusBarColor(Color.BLACK);
@@ -756,11 +751,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             // in onActivityResult().
                             status.startResolutionForResult(MapActivity.this, 2000);
                         } catch (IntentSender.SendIntentException e) {
-//                            Log.i(TAG, "PendingIntent unable to execute request.");
                         }
                         break;
                     case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-//                        Log.i(TAG, "Location settings are inadequate, and cannot be fixed here. Dialog not created.");
                         break;
                 }
             }

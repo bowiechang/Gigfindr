@@ -1067,9 +1067,6 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
             @Override
             public void onClick(View view) {
 
-//                Intent myIntent = new Intent(AccountActivity.this, MapActivity.class);
-//                AccountActivity.this.startActivity(myIntent);
-
                     Intent intent = new Intent(view.getContext(), MapActivity.class);
                     startActivity(intent);
 
@@ -1364,7 +1361,12 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
             filePath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imageViewBandPicEdit.setImageBitmap(bitmap);
+
+                Glide.with(getApplication().getApplicationContext())
+                        .load(bitmap)
+                        .into(imageViewBandPicEdit);
+
+//                imageViewBandPicEdit.setImageBitmap(bitmap);
 
                 StorageReference riversRef = storageReference.child("userid" + uid + "/pic.jpg");
                 riversRef.putFile(filePath);
