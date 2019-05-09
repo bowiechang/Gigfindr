@@ -33,20 +33,42 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "228325363503-ppdq08g7a4tneot3oe3v1uj7t4nrbk1r.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228325363503:android:f6738d59c8095b18",
+        "android_client_info": {
+          "package_name": "com.gigfindr.admin.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228325363503-ppdq08g7a4tneot3oe3v1uj7t4nrbk1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpkkn3iUI336l3KzFbLUbRSw3oTy7B6CQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228325363503-ppdq08g7a4tneot3oe3v1uj7t4nrbk1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
