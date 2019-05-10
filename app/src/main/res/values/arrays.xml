@@ -21,9 +21,9 @@
         <item>@drawable/iconfindnearbyshow</item>
         <item>@drawable/icondate60dp</item>
         <item>@drawable/iconaccount63dp</item>
-        <item>@drawable/iconmyshows50dp</item>
+        <item>@drawable/iconmyshows64pick1</item>
         <!--<item>0</item>-->
-        <item>@drawable/iconabout64dp</item>
+        <item>@drawable/iconabout64white</item>
     </array>
 
     <array name="ld_activityScreenIconsLoggedOut">
@@ -31,6 +31,6 @@
         <item>@drawable/icondate60dp</item>
         <item>@drawable/iconaccount63dp</item>
         <!--<item>0</item>-->
-        <item>@drawable/iconabout64dp</item>
+        <item>@drawable/iconabout64white</item>
     </array>
 </resources>
