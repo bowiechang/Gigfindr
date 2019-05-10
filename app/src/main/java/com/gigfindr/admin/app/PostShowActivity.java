@@ -528,15 +528,15 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
                 }
                 else{
                     Toasty.info(PostShowActivity.this, "Entry Fee can only be 'Free' or Numeric Price!", Toast.LENGTH_SHORT, true).show();
-
                 }
             }
             else{
 
-                if (entryFee.equalsIgnoreCase("0") || entryFee.equalsIgnoreCase("free")) {
+                if (entryFee.matches("\\d+(?:\\.\\d+)?") || entryFee.equalsIgnoreCase("free")) {
                     String llTouse;
                     if(latlngFromPicker == null){
                         llTouse = latLngRetrieved;
+                        placeid = showDetails.getPlaceid();
                     }
                     else{
                         llTouse = latlngFromPicker.toString().replace("lat/lng: (", "").replace(")", "");
