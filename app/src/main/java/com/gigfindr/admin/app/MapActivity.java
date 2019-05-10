@@ -174,7 +174,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         mMap = googleMap;
         //zoom camera to singapore
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(1.290270, 103.851959)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(1.3521, 103.8198)));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11.0f));
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
