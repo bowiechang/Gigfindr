@@ -98,7 +98,7 @@
             app:layout_constraintTop_toBottomOf="@id/textviewaboutapp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="35dp">
 
             <ImageView
                 android:layout_width="50dp"

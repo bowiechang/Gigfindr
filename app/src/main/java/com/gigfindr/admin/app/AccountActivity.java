@@ -1114,26 +1114,19 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                         public void run() {
                                             relativeLayoutLoading.setVisibility(View.INVISIBLE);
                                             if(imageViewBandPicEdit.getDrawable() != null){
-
                                                 relativeLayoutChangePic.setVisibility(View.VISIBLE);
-
                                             }
                                             else{
                                                 relativeLayoutChangePic.setVisibility(View.INVISIBLE);
                                             }
-
                                         }
                                     });
                                 }
                             }).start();
-
-
                         }
                         else{
                             relativeLayoutLoading.setVisibility(View.INVISIBLE);
-
                         }
-
                     }
                 });
             }
@@ -1220,10 +1213,8 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                 tvOk.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        tvIGstatus.setText(etIGname.getText().toString());
-
-
-                        if(!tvIGstatus.getText().toString().equals("")){
+                        if(!etIGname.getText().toString().equals("")){
+                            tvIGstatus.setText(etIGname.getText().toString());
                             String name, about, igName;
                             name = editTextName.getText().toString();
                             about = editTextAbout.getText().toString();

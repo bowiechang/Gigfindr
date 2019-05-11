@@ -513,7 +513,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 Toasty.normal(MapActivity.this, "That's all the gig found nearby", Toast.LENGTH_SHORT).show();
             }
             else if(sortedNearbyLocationMap.size() == 0){
-                Toasty.info(MapActivity.this, "No show nearby now", Toast.LENGTH_SHORT, true).show();
+                CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(currentLat), Double.parseDouble(currentLong)), 13);
+                mMap.animateCamera(cu);
+                Toasty.info(MapActivity.this, "No gig nearby now", Toast.LENGTH_SHORT, true).show();
             }
 
             markercounter++;
@@ -790,7 +792,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     // Now we use the Handler to post back to the main thread
                     handler.post(new Runnable() {
                         public void run() {
-                            CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(currentLat), Double.parseDouble(currentLong)), 14);
+                            CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(currentLat), Double.parseDouble(currentLong)), 13);
                             mMap.animateCamera(cu);
                         }
                     });
