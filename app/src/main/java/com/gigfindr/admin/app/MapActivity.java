@@ -802,5 +802,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         return false;
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
 }

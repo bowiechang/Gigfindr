@@ -308,23 +308,22 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         tvOk.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(etFee.getText().toString().equalsIgnoreCase("free")){
+                if(etFee.getText().toString().equalsIgnoreCase("0")) {
                     tvFee.setText(R.string.free);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    dialog.dismiss();
                 }
                 else{
                     tvFee.setText(etFee.getText().toString());
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    dialog.dismiss();
                 }
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                dialog.dismiss();
             }
         });
 
         tvCancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 dialog.dismiss();
             }
         });
@@ -483,11 +482,11 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
     public void post(){
 
-        startTime = tvStartTime.getText().toString();
-        endTime = tvEndTime.getText().toString();
+        startTime = tvStartTime.getText().toString().trim();
+        endTime = tvEndTime.getText().toString().trim();
         locationName = tvLocation.getText().toString();
         address = tvAddress.getText().toString();
-        entryFee = tvFee.getText().toString();
+        entryFee = tvFee.getText().toString().trim();
         if(entryFee.equalsIgnoreCase("fee")){
             entryFee = "";
         }
@@ -504,9 +503,9 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         if(startTime.equals("") || endTime.equals("") || locationName.equals("") || address.equals("") || entryFee.equals("") || date.equals("") || latLngRetrieved.equals("") || genre.equals("")) {
 
 //            Toast.makeText(PostShowActivity.this, "Empty fields please check", Toast.LENGTH_SHORT).show();
-            Toasty.Config.getInstance()
-                    .setInfoColor(getResources().getColor(R.color.yellow1));
-            Toasty.info(PostShowActivity.this, "Empty fields please check", Toast.LENGTH_SHORT, true).show();
+//            Toasty.Config.getInstance()
+//                    .setInfoColor(getResources().getColor(R.color.yellow1));
+            Toasty.error(PostShowActivity.this, "Empty fields please check", Toast.LENGTH_SHORT, true).show();
 
         }
         else {

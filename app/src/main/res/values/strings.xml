@@ -69,7 +69,7 @@
     <string name="detailedshowactivity">View Instagram</string>
 
     <string name="detailedshowband"><u>BAND</u></string>
-    <string name="detailedshowshow"><u>SHOW</u></string>
+    <string name="detailedshowshow"><u>GIG</u></string>
     <string name="detailedshowtester">"Distinguishable beats that resembles Chris Dave and also sick licks from blues to fusion. We are a 4 piece cluelessly running up and down life with music as our pendant and chain."</string>
 
     <string name="accountactivity_tv2saving">Telling the whole world the band is in town</string>
@@ -135,7 +135,7 @@
     <string name="accountactivity_introductionHint">Talk about yourselves, how your band came together, band name, adventures you took as a band, basically anything that makes your band!</string>
 
     <string name="postshowactivity_entryfee">ENTRY FEE</string>
-    <string name="postshowactivity_entryfee2">Enter \'Free\' if it is free</string>
+    <string name="postshowactivity_entryfee2">Enter \'0\' if it is free</string>
     <string name="postshowactivity_OK">OK</string>
     <string name="postshowactivity_CANCEL">CANCEL</string>
 

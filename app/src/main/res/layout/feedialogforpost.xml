@@ -62,7 +62,7 @@
                 android:fontFamily="@font/roboto_condensed_bold_test_download"
                 android:textColor="@color/black"
                 android:background="@android:color/transparent"
-                android:inputType="textVisiblePassword"
+                android:inputType="number"
                 android:hint="Fee"
                 android:paddingLeft="15dp"
                 android:textSize="18sp"/>

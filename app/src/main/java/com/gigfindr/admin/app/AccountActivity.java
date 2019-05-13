@@ -1088,7 +1088,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
         new Thread(new Runnable() {
             public void run() {
                 try{
-                    Thread.sleep(4000);
+                    Thread.sleep(3000);
                 }
                 catch (Exception e) { } // Just catch the InterruptedException
 
