@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/fjalla_one_test"
-                    android:text="Profile"
+                    android:text="Account"
                     android:textColor="@color/black"
                     android:textSize="27sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -215,6 +215,7 @@
             android:layout_marginBottom="10dp"
             android:layout_above="@id/linearLayout1">
 
+            //empty pic
             <ImageView
                 android:id="@+id/ivBandPicEmpty"
                 android:layout_width="wrap_content"
@@ -224,6 +225,7 @@
                 android:adjustViewBounds="true"
                 android:layout_margin="0dp"/>
 
+            //band pic
             <ImageView
                 android:id="@+id/ivBandPic"
                 android:layout_width="match_parent"
@@ -232,6 +234,7 @@
                 android:adjustViewBounds="true"
                 android:layout_margin="0dp"/>
 
+            //dim + "CHANGE"
             <RelativeLayout
                 android:id="@+id/relativeLayoutChangePic"
                 android:layout_width="match_parent"
@@ -253,6 +256,18 @@
                     android:textSize="25sp"
                     android:fontFamily="@font/fjalla_one_test"
                     android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="full size image will be reflected"
+                    android:textSize="9sp"
+                    android:fontFamily="@font/roboto_light_download"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="bottom"/>
 
             </RelativeLayout>
 
