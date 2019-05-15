@@ -151,11 +151,11 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserDetails userDetails = dataSnapshot.getValue(UserDetails.class);
                 if(userDetails == null){
-//                    Toast.makeText(PostShowActivity.this, "Please fill up your account first", Toast.LENGTH_SHORT).show();
-                    Toasty.Config.getInstance()
-                            .setInfoColor(getResources().getColor(R.color.yellow1))
-                            .apply(); // required
-                    Toasty.info(PostShowActivity.this, "Please fill up your account first", Toast.LENGTH_LONG, true).show();
+////                    Toast.makeText(PostShowActivity.this, "Please fill up your account first", Toast.LENGTH_SHORT).show();
+//                    Toasty.Config.getInstance()
+//                            .setInfoColor(getResources().getColor(R.color.yellow1))
+//                            .apply(); // required
+                    Toasty.error(PostShowActivity.this, "Please fill up your account first", Toast.LENGTH_LONG, true).show();
                     Intent intent = new Intent(getBaseContext(), AccountActivity.class);
                     startActivity(intent);
                 }

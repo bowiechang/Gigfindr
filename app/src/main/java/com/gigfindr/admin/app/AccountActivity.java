@@ -1373,8 +1373,8 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
     //this method will upload the file
     private void saveAndEdit() {
 
-        if(!editTextName.getText().toString().equalsIgnoreCase("") || !editTextAbout.getText().toString().equalsIgnoreCase("")) {
-
+        if(!editTextName.getText().toString().equalsIgnoreCase("") && !editTextAbout.getText().toString().equalsIgnoreCase("")) {
+            System.out.println("etabout: " + editTextAbout.getText().toString());
 
             if (filePath != null) {
 
@@ -1538,7 +1538,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
             }
         }
         else{
-            Toasty.error(AccountActivity.this, "Please input Name and Introduction", Toast.LENGTH_LONG, true).show();
+            Toasty.error(AccountActivity.this, "Please input Name and Introduction", Toast.LENGTH_SHORT, true).show();
         }
     }
 
