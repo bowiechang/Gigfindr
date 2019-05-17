@@ -152,6 +152,7 @@ public class ViewMyShowsAdapter extends RecyclerView.Adapter<ViewMyShowsHolder> 
                 Bundle extras = new Bundle();
                 extras.putString("starttime", list.get(position).getStartTime());
                 extras.putString("date", list.get(position).getDate());
+                extras.putString("FROM_ACTIVITY", "viewmyshowadap");
                 intent.putExtras(extras);
                 context.startActivity(intent);
 

@@ -510,7 +510,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
 
             if (!it.hasNext() && sortedNearbyLocationMap.size() > 0) {
-                Toasty.normal(MapActivity.this, "That's all the gig found nearby", Toast.LENGTH_SHORT).show();
+                Toasty.success(MapActivity.this, "That's all the gig found nearby", Toast.LENGTH_SHORT).show();
             }
             else if(sortedNearbyLocationMap.size() == 0){
                 CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(currentLat), Double.parseDouble(currentLong)), 13);

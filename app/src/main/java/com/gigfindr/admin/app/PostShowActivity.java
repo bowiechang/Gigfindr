@@ -81,6 +81,9 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
     String key = "";
 
     String bandName;
+    String prevAct;
+
+    Toolbar toolbar;
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -123,11 +126,14 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         btnPost.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        Intent mIntent = getIntent();
+        prevAct = mIntent.getStringExtra("FROM_ACTIVITY");
 
         if(!Places.isInitialized()){
             Places.initialize(getApplicationContext(), getString(R.string.google_geo_api_key_new));
@@ -172,11 +178,28 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
 
         //bundle
         Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        if(extras != null) {
+        String prevAct = getIntent().getExtras().getString("FROM_ACTIVITY");
+        if(prevAct.equalsIgnoreCase("decideact")){
+            toolbar.setNavigationOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(PostShowActivity.this, ViewMyShowsActivity.class);
+                    PostShowActivity.this.startActivity(myIntent);
+                }
+            });
+        }
+
+        else if(prevAct.equalsIgnoreCase("viewmyshowadap")){
+            toolbar.setNavigationOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+
             btnPost.setText("Update");
             btnDelete.setVisibility(View.VISIBLE);
-            tvToolbar.setText("Update Show");
+            tvToolbar.setText("Update Gig");
             date2 = getIntent().getExtras().getString("date");
             startTime = getIntent().getExtras().getString("starttime");
 
@@ -569,19 +592,19 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
         Toasty.success(PostShowActivity.this, "Delete Successful!", Toast.LENGTH_LONG, true).show();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-//                onBackPressed();
-
-                Intent myIntent = new Intent(PostShowActivity.this, ViewMyShowsActivity.class);
-                PostShowActivity.this.startActivity(myIntent);
-
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+////                onBackPressed();
+//
+//                Intent myIntent = new Intent(PostShowActivity.this, ViewMyShowsActivity.class);
+//                PostShowActivity.this.startActivity(myIntent);
+//
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public void onClick(View view) {
@@ -650,6 +673,18 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(prevAct.equalsIgnoreCase("decideact")){
+            Intent myIntent = new Intent(PostShowActivity.this, ViewMyShowsActivity.class);
+            PostShowActivity.this.startActivity(myIntent);
+        }
+        else{
+            finish();
+        }
     }
 }
 

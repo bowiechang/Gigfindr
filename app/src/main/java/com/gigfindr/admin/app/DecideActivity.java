@@ -75,13 +75,14 @@ public class DecideActivity extends AppCompatActivity implements OnClickListener
             case R.id.layoutPostShow:
                 Intent intent2;
                 if(firebaseAuth.getCurrentUser() != null){
-
-
                     intent2 = new Intent(this, PostShowActivity.class);
-                    startActivity(intent2);
+                    Bundle extras = new Bundle();
+                    extras.putString("FROM_ACTIVITY", "decideact");
+                    intent2.putExtras(extras);
+                    this.startActivity(intent2);
+
                 }
                 else{
-
                     intent2 = new Intent(this, SignInSignUpActivity.class);
                     startActivity(intent2);
                 }

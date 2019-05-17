@@ -240,7 +240,13 @@ public class ViewMyShowsActivity extends AppCompatActivity implements OnClickLis
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        if(prevAct == null){
+            Intent myIntent = new Intent(ViewMyShowsActivity.this, MapActivity.class);
+            ViewMyShowsActivity.this.startActivity(myIntent);
+        }
+        else if(prevAct.equalsIgnoreCase("mapact")){
+            finish();
+        }
     }
 
     @Override
