@@ -61,6 +61,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import es.dmoral.toasty.Toasty;
 
@@ -69,7 +71,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
     private Toolbar toolbar;
     private ImageView imageView, imageViewMap;
     private TextView tvLocation, tvTime, tvDate, tvAboutBand, tvEntryFee, tvGenre, tvAddress;
-    private RelativeLayout btnGetDirection, relativeLayoutDefaultPlaceCover;
+    private RelativeLayout btnGetDirection, relativeLayoutDefaultPlaceCover, btnShare;
 
     private StorageReference storageReference;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Show");
@@ -119,6 +121,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
         tvEntryFee = findViewById(R.id.tvFee);
         tvGenre = findViewById(R.id.tvGenre);
         btnGetDirection = findViewById(R.id.buttonGetDirections);
+        btnShare = findViewById(R.id.rlShareShow);
         relativeLayoutDefaultPlaceCover = findViewById(R.id.defaultImageCover);
         toolbar = findViewById(R.id.toolbar);
 
@@ -266,6 +269,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
 
         databaseReference.addValueEventListener(valueEventListener1);
         btnGetDirection.setOnClickListener(this);
+        btnShare.setOnClickListener(this);
 
     }
 
@@ -337,6 +341,37 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
             relativeLayoutShowTabBody.setVisibility(View.VISIBLE);
             relativeLayoutDimmer.setAlpha(1.0f);
         }
+        else if(view.equals(btnShare)){
+
+            String bandname = capitalize(showDetails.getBandName());
+            String[] split = showDetails.getAddress().split(",");
+            String locationaddress = showDetails.getLocationName().concat(" (" + split[0] + ")");
+            String time = showDetails.getStartTime().concat(" to ").concat(showDetails.getEndTime());
+            String[] split2 = showDetails.getDate().split("/");
+            String[] monthValue = {"January","February","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+            int month = Integer.parseInt(split2[1]);
+            String dateformated = split2[0] + " " + monthValue[(month-1)];
+            String dateandtime = dateformated.concat(", " + time);
+
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "GIGFINDR'S GIG SHARING");
+            String string = "*GIGFINDR'S GIG SHARING*\n\n" +
+                    "Hey, thought you would be interested in this gig!\n\n" +
+                    "Band: " + bandname +"\n" + "Location: " + locationaddress + "\n" + "Date & Time: " + dateandtime +
+                    "\n\nDownload GigFindr for more gigs now at https://play.google.com/store/apps/details?id=" + this.getPackageName() ;
+            intent.putExtra(Intent.EXTRA_TEXT, string);
+            startActivity(Intent.createChooser(intent, "Share with"));
+        }
+    }
+
+    private String capitalize(String capString){
+        StringBuffer capBuffer = new StringBuffer();
+        Matcher capMatcher = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(capString);
+        while (capMatcher.find()){
+            capMatcher.appendReplacement(capBuffer, capMatcher.group(1).toUpperCase() + capMatcher.group(2).toLowerCase());
+        }
+        return capMatcher.appendTail(capBuffer).toString();
     }
 
 

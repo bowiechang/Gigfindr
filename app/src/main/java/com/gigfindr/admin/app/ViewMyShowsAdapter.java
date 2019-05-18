@@ -9,6 +9,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 //import com.google.android.gms.location.places.GeoDataClient;
 //import com.google.android.gms.location.places.PlacePhotoMetadata;
@@ -45,6 +46,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * Created by admin on 20/7/17.
@@ -159,6 +164,43 @@ public class ViewMyShowsAdapter extends RecyclerView.Adapter<ViewMyShowsHolder> 
             }
         });
 
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+
+                Toasty.normal(context, "Sharing gig..", Toast.LENGTH_SHORT).show();
+
+                String bandname = capitalize(list.get(position).getBandName());
+                String[] split = list.get(position).getAddress().split(",");
+                String locationaddress = list.get(position).getLocationName().concat(" (" + split[0] + ")");
+                String time = list.get(position).getStartTime().concat(" to ").concat(list.get(position).getEndTime());
+                String[] split2 = list.get(position).getDate().split("/");
+                String[] monthValue = {"January","February","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+                int month = Integer.parseInt(split2[1]);
+                String dateformated = split2[0] + " " + monthValue[(month-1)];
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "GIGFINDR'S GIG SHARING");
+                String string = "*GIGFINDR'S GIG SHARING*\n\n" +
+                        "Hello, we are " + bandname + "!\n\n" + "We are having a gig \nat " + locationaddress + " \non " + dateformated + " ," + time + "! \n\nHope to see you there!" +
+                        "\n\nFind us and many other live bands at GigFindr now! Link: https://play.google.com/store/apps/details?id=" + context.getPackageName() ;
+                intent.putExtra(Intent.EXTRA_TEXT, string);
+                context.startActivity(Intent.createChooser(intent, "Share with"));
+
+                return true;
+            }
+        });
+
+    }
+
+    private String capitalize(String capString){
+        StringBuffer capBuffer = new StringBuffer();
+        Matcher capMatcher = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(capString);
+        while (capMatcher.find()){
+            capMatcher.appendReplacement(capBuffer, capMatcher.group(1).toUpperCase() + capMatcher.group(2).toLowerCase());
+        }
+        return capMatcher.appendTail(capBuffer).toString();
     }
 
     @Override
