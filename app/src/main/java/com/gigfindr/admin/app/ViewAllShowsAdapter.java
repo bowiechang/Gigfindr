@@ -87,7 +87,7 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
         holder.tvBandName.setText(list.get(position).getBandName());
         holder.tvDate.setText(date);
         holder.tvTime.setText(time);
-        holder.tvAddress.setText(splitaddress[0]);
+        holder.tvAddress.setText("("+splitaddress[0]+")");
 
         if(list.get(position).getEntryFee().equalsIgnoreCase("free") || list.get(position).getEntryFee().equalsIgnoreCase("0")){
             holder.tvEntryFee.setText(R.string.free_caps);
@@ -125,7 +125,7 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
 
                 Intent intent = new Intent(context, ViewDetailedShowActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("name", list.get(position).getBandName());
+                extras.putString("uid", list.get(position).getUserid());
                 extras.putString("date", list.get(position).getDate());
                 extras.putString("address", list.get(position).getAddress());
                 intent.putExtras(extras);

@@ -83,7 +83,7 @@
     <string name="accountactivity_selectapicture">Select a Picture</string>
 
     <string name="decideactivity_tvpostshow">Maximise your reach and gain exposure!</string>
-    <string name="decideactivity_tvpostshow2">SHARE YOUR GIG</string>
+    <string name="decideactivity_tvpostshow2">SHARE YOUR GIGS</string>
     <string name="decideactivity_tvfindshow">FIND GIGS NEAR YOU</string>
     <string name="decideactivity_tvfindshow2">Look for live music happening around you!</string>
 
@@ -148,7 +148,7 @@
     <string name="about1">Two friends that worked under the void deck to bring you <i>GigFindr</i>, the service that was created by locals and for locals. Nothing beats live music, it is raw expression, pure hardwork and it shoudn\'t be kept in the corners of our lives. We believe in working with local artiste to broaden their reach and promote asipring dreams growth.
     </string>
 
-    <string name="about3">Nothing beats live music, pure raw expression caught only in the middle of the sets. Behind every song lies a story to be told, hard work to be felt and it shouldn\’t be kept in the corners of our lives. Here in <i>GigFindr</i>, we bring musicians and music lovers together because we both know one can\'t survive without another \n\nWe are open to suggestions so do let us know what we can improve on! We won\’t let you be unheard.
+    <string name="about3">Nothing beats live music, pure raw expression caught only in the middle of the sets. Behind every song lies a story to be told, hard work to be felt and it shouldn\’t be kept in the corners of our lives. Here in <i>GigFindr</i>, we bring musicians and music lovers together because we both know that one can\'t survive without another. \n\nWe are open to suggestions so do let us know what we can improve on! We won\’t let you be unheard.
     </string>
 
     <string name="smilingbirdabout"><b>Smiling Bird Vision</b>
@@ -156,6 +156,7 @@
 
     <string name="smilingbirdcontact">
         Contact us at smiling.bird.vision@gmail.com
+        \nOr drop us a message on our Instagram account
     </string>
 
     <string name="tpsthanks">Without them, we won\'t be here. A huge THANK YOU to the following mentioned libraries, do check them out!</string>
