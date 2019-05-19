@@ -332,7 +332,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
                                     Intent intent = new Intent(getBaseContext(), ViewDetailedShowActivity.class);
                                     Bundle extras = new Bundle();
-                                    extras.putString("name", showDetailsHashMap.get(marker.getId()).getBandName());
+                                    extras.putString("uid", showDetailsHashMap.get(marker.getId()).getUserid());
                                     extras.putString("date", showDetailsHashMap.get(marker.getId()).getDate());
                                     extras.putString("address", showDetailsHashMap.get(marker.getId()).getAddress());
                                     intent.putExtras(extras);

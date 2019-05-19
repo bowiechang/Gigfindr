@@ -181,9 +181,9 @@ public class ViewMyShowsAdapter extends RecyclerView.Adapter<ViewMyShowsHolder> 
                 String dateformated = split2[0] + " " + monthValue[(month-1)];
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "GIGFINDR'S GIG SHARING");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "GIGFINDR'S GIG INVITATION");
                 String string = "*GIGFINDR'S GIG SHARING*\n\n" +
-                        "Hello, we are " + bandname + "!\n\n" + "We are having a gig \nat " + locationaddress + " \non " + dateformated + " ," + time + "! \n\nHope to see you there!" +
+                        "Hello, we are " + bandname + "!\n\n" + "We are having a gig \nat " + locationaddress + " \non " + dateformated + ", " + time + "! \n\nHope to see you there!" +
                         "\n\nFind us and many other live bands at GigFindr now! Link: https://play.google.com/store/apps/details?id=" + context.getPackageName() ;
                 intent.putExtra(Intent.EXTRA_TEXT, string);
                 context.startActivity(Intent.createChooser(intent, "Share with"));

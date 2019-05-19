@@ -165,12 +165,11 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            name = getIntent().getExtras().getString("name");
+            uid = getIntent().getExtras().getString("uid");
             date = getIntent().getExtras().getString("date");
             address = getIntent().getExtras().getString("address");
         }
 
-        bandName.setText(name);
         storageReference = FirebaseStorage.getInstance().getReference();
 
         valueEventListener1 = new ValueEventListener() {
@@ -179,7 +178,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     ShowDetails showDetails1 = child.getValue(ShowDetails.class);
 
-                    if(showDetails1.getDate().equals(date) && showDetails1.getBandName().equals(name) && showDetails1.getAddress().equalsIgnoreCase(address)) {
+                    if(showDetails1.getDate().equals(date) && showDetails1.getUserid().equals(uid) && showDetails1.getAddress().equalsIgnoreCase(address)) {
                         showDetails = showDetails1;
 
                         getPhotos(showDetails.getPlaceid());
@@ -242,6 +241,7 @@ public class ViewDetailedShowActivity extends AppCompatActivity implements OnCli
 
                                     UserDetails userDetails = child.getValue(UserDetails.class);
                                     tvAboutBand.setText(userDetails.getAbout());
+                                    bandName.setText(userDetails.getName());
 
                                     if(!userDetails.getinstagramName().equals("")){
                                         relativeLayoutSocialMediaInstagram.setVisibility(View.VISIBLE);
