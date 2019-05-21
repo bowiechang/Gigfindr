@@ -188,7 +188,14 @@ public class PostShowActivity extends AppCompatActivity implements OnConnectionF
                 }
             });
         }
-
+        else if(prevAct.equalsIgnoreCase("postbtn")){
+            toolbar.setNavigationOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+        }
         else if(prevAct.equalsIgnoreCase("viewmyshowadap")){
             toolbar.setNavigationOnClickListener(new OnClickListener() {
                 @Override

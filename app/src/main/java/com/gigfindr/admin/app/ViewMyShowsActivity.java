@@ -233,6 +233,9 @@ public class ViewMyShowsActivity extends AppCompatActivity implements OnClickLis
 //        if(view.equals(constraintLayoutAddShow)) {
         if(view.equals(ivAddShow)) {
             Intent intent = new Intent(ViewMyShowsActivity.this, PostShowActivity.class);
+            Bundle extras = new Bundle();
+            extras.putString("FROM_ACTIVITY", "postbtn");
+            intent.putExtras(extras);
             startActivity(intent);
         }
     }

@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -112,6 +113,7 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+
                 Glide.with(context)
                         .load(R.drawable.bandpicblackwhite)
                         .into(holder.getBackgroundImage());
