@@ -136,6 +136,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if(getIntent().getBooleanExtra("EXIT", false)) {
+//            finish();
+//        }
         savedInstanceState2 = savedInstanceState;
         setContentView(R.layout.activity_map);
 
@@ -777,6 +780,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        slidingRootNav.closeMenu();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        slidingRootNav.closeMenu();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
 
         if(!slidingRootNav.isMenuHidden()){
@@ -804,7 +820,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onBackPressed() {
-
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }

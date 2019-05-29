@@ -89,10 +89,6 @@
             android:layout_height="match_parent"
             tools:ignore="ExtraText">
 
-
-
-
-
             //bg img
             <ImageView
                 android:id="@+id/imageViewBandpic"
@@ -115,23 +111,52 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/listgradient"/>
 
-            //BAND text
-            <RelativeLayout
-                android:id="@+id/relativeLayoutBandTab"
-                android:layout_width="175dp"
-                android:layout_height="60dp"
-                android:layout_alignParentStart="true">
+            <LinearLayout
+                android:id="@+id/llheader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/detailedshowband"
-                    android:fontFamily="@font/fjalla_one_test"
-                    android:textColor="@color/yellow1"
-                    android:textSize="20sp"
-                    android:layout_centerInParent="true"/>
+                //BAND text
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutBandTab"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1">
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detailedshowband"
+                        android:fontFamily="@font/fjalla_one_test"
+                        android:textColor="@color/yellow1"
+                        android:textSize="20sp"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+                //show text
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutShowTab"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/detailedshowborder"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detailedshowshow"
+                        android:fontFamily="@font/fjalla_one_test"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:layout_centerInParent="true"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -202,31 +227,14 @@
 
 
 
-            //show text
-            <RelativeLayout
-                android:id="@+id/relativeLayoutShowTab"
-                android:layout_width="175dp"
-                android:layout_height="60dp"
-                android:background="@drawable/detailedshowborder"
-                android:layout_alignParentEnd="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/detailedshowshow"
-                    android:fontFamily="@font/fjalla_one_test"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:layout_centerInParent="true"/>
-
-            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relativeLayoutShow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/detailedshowborderforshowfulltab"
-                android:layout_below="@id/relativeLayoutShowTab"
+                android:layout_below="@id/llheader"
                 android:padding="15dp">
 
 
