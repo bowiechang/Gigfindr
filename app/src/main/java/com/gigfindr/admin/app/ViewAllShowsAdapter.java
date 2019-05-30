@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -82,13 +83,24 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
 
         String date = dayOfTheWeek.concat(" " + split[0].concat(" ").concat(monthValue[(month-1)]));
         String time = list.get(position).getStartTime().concat(" - ").concat(list.get(position).getEndTime());
-        String[] splitaddress = list.get(position).getAddress().split(",");
+
+        if(countChar(list.get(position).getAddress(), ',') > 1){
+            String[] splitaddress = list.get(position).getAddress().split(",");
+            String address = "("+splitaddress[0].trim()+")";
+            String stringremove = address.replace(",","").replace(".","");
+            holder.tvAddress.setText(stringremove);
+        }
+        else{
+            String[] splitaddress = list.get(position).getAddress().split("Singapore");
+            String address = "("+splitaddress[0].trim()+")";
+            String stringremove = address.replace(",","").replace(".","");
+            holder.tvAddress.setText(stringremove);
+        }
 
         holder.tvLocation.setText(list.get(position).getLocationName());
         holder.tvBandName.setText(list.get(position).getBandName());
         holder.tvDate.setText(date);
         holder.tvTime.setText(time);
-        holder.tvAddress.setText("("+splitaddress[0]+")");
 
         if(list.get(position).getEntryFee().equalsIgnoreCase("free") || list.get(position).getEntryFee().equalsIgnoreCase("0")){
             holder.tvEntryFee.setText(R.string.free_caps);
@@ -105,7 +117,8 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
                 // Load the image using Glide
                 Glide.with(context)
                         .load(uri.toString())
-//                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .skipMemoryCache(true)
                         .into(holder.getBackgroundImage());
 
             }
@@ -116,6 +129,8 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
 
                 Glide.with(context)
                         .load(R.drawable.bandpicblackwhite)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .skipMemoryCache(true)
                         .into(holder.getBackgroundImage());
             }
         });
@@ -141,8 +156,24 @@ public class ViewAllShowsAdapter extends RecyclerView.Adapter<ViewAllShowsHolder
     }
 
     @Override
+    public void onViewRecycled(@NonNull ViewAllShowsHolder holder) {
+        super.onViewRecycled(holder);
+
+    }
+
+    @Override
     public int getItemCount() {
         return this.list.size();
+    }
+
+    private int countChar(String str, char c){
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == c){
+                count ++;
+            }
+        }
+        return count;
     }
 
 }

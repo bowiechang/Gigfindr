@@ -7,7 +7,7 @@ android {
         applicationId "com.gigfindr.admin.app"
         minSdkVersion 24
         targetSdkVersion 27
-        versionCode 5
+        versionCode 6
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
