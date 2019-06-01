@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 public class AboutAppActivity extends AppCompatActivity implements OnClickListener {
 
     TextView tvPP, tvTC, tvTPS;
+    ImageView ivAdmin;
+    int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +42,12 @@ public class AboutAppActivity extends AppCompatActivity implements OnClickListen
         tvPP = findViewById(R.id.tvPP);
         tvTC = findViewById(R.id.tvTC);
         tvTPS = findViewById(R.id.tvTPS);
+        ivAdmin = findViewById(R.id.ivGigfindr);
 
         tvPP.setOnClickListener(this);
         tvTC.setOnClickListener(this);
         tvTPS.setOnClickListener(this);
+        ivAdmin.setOnClickListener(this);
 
 
         Window window = getWindow();
@@ -65,6 +70,15 @@ public class AboutAppActivity extends AppCompatActivity implements OnClickListen
         else if(view == tvTPS){
             Intent myIntent = new Intent(AboutAppActivity.this, ThirdPartyActivity.class);
             AboutAppActivity.this.startActivity(myIntent);
+        }
+        else if(view == ivAdmin){
+            if(counter == 5){
+                Intent myIntent = new Intent(AboutAppActivity.this, AdminViewReoccuringShowActivity.class);
+                AboutAppActivity.this.startActivity(myIntent);
+            }
+            else{
+                counter++;
+            }
         }
     }
 

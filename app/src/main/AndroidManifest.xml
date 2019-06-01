@@ -21,12 +21,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
+        <activity android:name=".AdminViewReoccuringShowActivity"></activity>
         <activity android:name=".testShareActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-    <!---->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!--  -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.fi
@@ -60,38 +62,38 @@
         </activity>
         <activity
             android:name=".DecideActivity"
-            android:screenOrientation="portrait"
             android:resizeableActivity="false"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name=".SignInSignUpActivity"
             android:label="@string/app_name"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PostShowActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ViewMyShowsActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ViewAllShowsActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MapActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ViewDetailedShowActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DeleteAccountActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".Receiver">
             <intent-filter>
@@ -101,38 +103,43 @@
 
         <activity
             android:name=".AccountActivity"
-            android:screenOrientation="portrait"
             android:resizeableActivity="false"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ViewByGenreActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AboutAppActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PrivacyPolicyActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TermsAndConditionActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ThirdPartyActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LocationCheckerActivity"
             android:resizeableActivity="false"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.facebook.CustomTabActivity"
-            android:resizeableActivity="false"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminPostShowActivity"
+            android:exported="true"
+            android:resizeableActivity="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
