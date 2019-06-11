@@ -1,10 +1,12 @@
 package com.gigfindr.admin.app;
 
+import java.io.Serializable;
+
 /**
  * Created by admin on 28/4/17.
  */
 
-public class ShowDetails{
+public class ShowDetails implements Serializable {
 
     //LocationName, Address, LatLng, Date, startTime, endTime, entryFee, userid
 

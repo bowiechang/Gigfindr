@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:theme">
-        <activity android:name=".AdminViewReoccuringShowActivity"></activity>
+        <activity android:name=".ViewMultipleShowActivity"></activity>
+        <activity android:name=".AdminViewReoccuringShowActivity" />
         <activity android:name=".testShareActivity">
 
             <!-- <intent-filter> -->
