@@ -5,9 +5,9 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.gigfindr.admin.app"
-        minSdkVersion 24
+        minSdkVersion 20
         targetSdkVersion 27
-        versionCode 6
+        versionCode 7
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true

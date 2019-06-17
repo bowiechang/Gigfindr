@@ -17,7 +17,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -66,13 +71,13 @@ public class MarkerInfoWindowAdapter implements InfoWindowAdapter {
             if(windowInfoObject.getMarkerID().equalsIgnoreCase(marker.getId())) {
                 //more than 1 show
                 if(windowInfoObject.getMultipleShow()) {
+                    timeSorter(windowInfoObject.getShowDetailsArrayList());
                     if (v == null) {
                         v = inflater.inflate(R.layout.markerinfowindow_layout_multiple, null);
                     }
                     else{
                         v = null;
                         v = inflater.inflate(R.layout.markerinfowindow_layout_multiple, null);
-
                     }
 
 
@@ -220,6 +225,29 @@ public class MarkerInfoWindowAdapter implements InfoWindowAdapter {
 
 
         return v;
+    }
+
+    private void timeSorter(ArrayList list){
+        Collections.sort(list, new Comparator<ShowDetails>() {
+            public int compare(ShowDetails showDetails, ShowDetails showDetails2) {
+                if (showDetails.getStartTime() == null || showDetails2.getStartTime() == null)
+                    return 0;
+
+                SimpleDateFormat sdf = new SimpleDateFormat("h:mm a");
+
+                Date date1 = null;
+                Date date2 = null;
+
+                try {
+                    date1 = sdf.parse(showDetails.getStartTime());
+                    date2 = sdf.parse(showDetails2.getStartTime());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                return date1.compareTo(date2);
+            }
+        });
     }
 
     private String capitalize(String capString){

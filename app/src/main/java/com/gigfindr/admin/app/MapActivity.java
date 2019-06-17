@@ -90,6 +90,7 @@ import java.util.Map.Entry;
 import es.dmoral.toasty.Toasty;
 
 import static android.os.Build.VERSION_CODES.M;
+import static com.gigfindr.admin.app.R.id.date;
 import static com.gigfindr.admin.app.R.id.map;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback,
@@ -328,14 +329,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             checkerWindowInfo = false;
 
                             if(windowInfoObjectArrayList.size() > 0) {
-                                Log.d("windowmarker : " , "entered");
-
                                 for (int i = 0; i < windowInfoObjectArrayList.size(); i++) {
                                     WindowInfoObject windowInfoObjectHere = windowInfoObjectArrayList.get(i);
-
-                                    Log.d("windowmarker existinglocationname: " , windowInfoObjectHere.getShowDetailsArrayList().get(0).getLocationName());
-                                    Log.d("windowmarker incoming showdetails: " , showDetails.getLocationName());
-
                                     if (windowInfoObjectHere.getShowDetailsArrayList().get(0).getLocationName().equalsIgnoreCase(showDetails.getLocationName())) {
                                         windowInfoObjectHere.getShowDetailsArrayList().add(showDetails);
                                         windowInfoObjectHere.setMultipleShow(true);
@@ -357,17 +352,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 windowInfoObjectArrayList.add(windowInfoObject);
                             }
 
-                            Log.d("windowmarker size: " , windowInfoObjectArrayList.size() + "");
-//                            showDetailsHashMap.put(marker.getId(), showDetails);
-
-
-//                            for (int i = 0; i < showDetailsHashMap.size(); i++) {
-////                                if(showDetailsHashMap.get(i).getValue().get.getLocationName().equalsIgnoreCase("little saigon")){
-////
-//                                }
-
-//                            }
-
                             if (!b) {
                                 if (currentLocation.distanceTo(showlocation) < 5000) {
                                     String markerId = marker.getId().substring(1);
@@ -376,7 +360,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                     markerArray.add(marker);
                                 }
                             }
-
 
                             mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(getLayoutInflater(), windowInfoObjectArrayList, context));
                             mMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
@@ -433,147 +416,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
             }
         });
-
-//        mDatabase.child("Show").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot child : dataSnapshot.getChildren()) {
-//                    showDetails = child.getValue(ShowDetails.class);
-//                    if (showDetails != null) {
-//
-//                        Calendar c = Calendar.getInstance();
-//                        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-//                        String todayDate = df.format(c.getTime());
-//
-//                        String receivedDate = showDetails.getDate();
-//                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//                        Date DateshowDate = null;
-//                        Date DatetodayDate = null;
-//
-//                        try {
-//                            DatetodayDate = sdf.parse(todayDate);
-//                            DateshowDate = sdf.parse(receivedDate);
-//                        } catch (ParseException e) {
-//                            e.printStackTrace();
-//                        }
-//                        if (DateshowDate.equals(DatetodayDate)) {
-//
-//                            //today's show
-//                            final String latlng = showDetails.getLatLng();
-//                            String lat = latlng.substring(0, latlng.indexOf(","));
-//                            String lng = latlng.substring(latlng.indexOf(","));
-//                            String editedlng = lng.replace(",", " ");
-//
-//                            final Location showlocation = new Location("showLocation");
-//                            showlocation.setLatitude(Double.parseDouble(lat));
-//                            showlocation.setLongitude(Double.parseDouble(editedlng));
-//
-//                            MarkerOptions markerOptions = new MarkerOptions();
-//                            markerOptions.position(new LatLng(Double.parseDouble(lat), Double.parseDouble(editedlng)));
-//                            markerOptions.title("");
-//                            markerOptions.snippet("");
-//
-//                            Marker marker = mMap.addMarker(markerOptions);
-//
-//                            if(windowInfoObjectArrayList.size() > 0) {
-//                                Log.d("windowmarker entered: " , "1");
-//
-//                                for (int i = 0; i < windowInfoObjectArrayList.size(); i++) {
-//                                    WindowInfoObject windowInfoObjectHere = windowInfoObjectArrayList.get(i);
-//                                    if (windowInfoObjectHere.getShowDetailsArrayList().get(i).getLocationName().equalsIgnoreCase(showDetails.getLocationName())) {
-//                                        Log.d("windowmarker existinglocationname: " , windowInfoObjectHere.getShowDetailsArrayList().get(i).getLocationName());
-//                                        Log.d("windowmarker incoming showdetails: " , showDetails.getLocationName());
-//
-//                                        windowInfoObjectHere.getShowDetailsArrayList().add(showDetails);
-//                                        windowInfoObjectHere.setMultipleShow(true);
-//                                        break;
-//                                    }
-//                                }
-//                            }
-//                            else{
-//                                ArrayList<ShowDetails> arraylistInsideWindowObject = new ArrayList<>();
-//                                arraylistInsideWindowObject.add(showDetails);
-//                                WindowInfoObject windowInfoObject = new WindowInfoObject(marker.getId(), false, arraylistInsideWindowObject);
-//                                windowInfoObjectArrayList.add(windowInfoObject);
-//                            }
-//
-//                            Log.d("windowmarker size: " , windowInfoObjectArrayList.size() + "");
-////                            showDetailsHashMap.put(marker.getId(), showDetails);
-//
-//
-////                            for (int i = 0; i < showDetailsHashMap.size(); i++) {
-//////                                if(showDetailsHashMap.get(i).getValue().get.getLocationName().equalsIgnoreCase("little saigon")){
-//////
-////                                }
-//
-////                            }
-//
-//                            if (!b) {
-//                                if (currentLocation.distanceTo(showlocation) < 5000) {
-//                                    String markerId = marker.getId().substring(1);
-//
-//                                    tempNearbyLocation.put(showlocation, markerId);
-//                                    markerArray.add(marker);
-//                                }
-//                            }
-//
-//
-//                            mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(getLayoutInflater(), windowInfoObjectArrayList));
-//                            mMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
-//                                @Override
-//                                public void onInfoWindowClick(Marker marker) {
-//                                    ShowDetails showDetails1 = null;
-////                                    if(showDetailsHashMap.get(marker.getId()).getBandName().equalsIgnoreCase("THE PASSERBY")){;
-////                                        Intent intent = new Intent(getBaseContext(), AboutAppActivity.class);
-////                                        startActivity(intent);
-////                                    }
-////                                    else {
-////                                        Intent intent = new Intent(getBaseContext(), ViewDetailedShowActivity.class);
-////                                        Bundle extras = new Bundle();
-////                                        extras.putString("uid", showDetailsHashMap.get(marker.getId()).getUserid());
-////                                        extras.putString("date", showDetailsHashMap.get(marker.getId()).getDate());
-////                                        extras.putString("address", showDetailsHashMap.get(marker.getId()).getAddress());
-////                                        intent.putExtras(extras);
-////                                        startActivity(intent);
-////                                    }
-//                                    for (int i = 0; i < windowInfoObjectArrayList.size(); i++) {
-//                                        WindowInfoObject windowInfoObject = (WindowInfoObject) windowInfoObjectArrayList.get(i);
-//                                        if (windowInfoObject.getMarkerID().equalsIgnoreCase(marker.getId())) {
-//                                            for (int j = 0; j < windowInfoObject.getShowDetailsArrayList().size(); j++) {
-//                                                showDetails1 = windowInfoObject.getShowDetailsArrayList().get(j);
-//                                            }
-//                                        }
-//                                    }
-//
-//                                    Intent intent = new Intent(getBaseContext(), ViewDetailedShowActivity.class);
-//                                    Bundle extras = new Bundle();
-//                                    extras.putString("uid", showDetails1.getUserid());
-//                                    extras.putString("date", showDetails1.getDate());
-//                                    extras.putString("address", showDetails1.getAddress());
-//                                    intent.putExtras(extras);
-//                                    startActivity(intent);
-//                                }
-//                            });
-//                        }
-//                    }
-//                }
-//
-//                if (!tempNearbyLocation.isEmpty()) {
-//                    nearbyLocation.putAll(tempNearbyLocation);
-//                    b = true;
-//                }
-//
-//                mDatabase.removeEventListener(this);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//
-//            }
-//        });
-
     }
+
+
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {

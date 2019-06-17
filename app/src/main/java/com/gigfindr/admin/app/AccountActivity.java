@@ -489,10 +489,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-                                            Log.d("accact:: child.getkey: ", child.getKey());
                                             ShowDetails showDetails = child.getValue(ShowDetails.class);
-                                            Log.d("accact:: showdets ", showDetails.toString());
                                             if (showDetails.getUserid().equals(uid)) {
                                                 showDetails.setBandName(name);
                                                 databaseReference.child("Show").child(child.getKey()).setValue(showDetails);
@@ -564,10 +561,7 @@ public class AccountActivity extends AppCompatActivity implements OnClickListene
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         for (DataSnapshot child : dataSnapshot.getChildren()) {
-
-                                            Log.d("accact:: child.getkey: ", child.getKey());
                                             ShowDetails showDetails = child.getValue(ShowDetails.class);
-                                            Log.d("accact:: showdets ", showDetails.toString());
                                             if (showDetails.getUserid().equals(uid)) {
                                                 showDetails.setBandName(name);
                                                 databaseReference.child("Show").child(child.getKey()).setValue(showDetails);

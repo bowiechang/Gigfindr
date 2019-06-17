@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -44,7 +45,7 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
         AnimatorUpdateListener, OnClickListener {
 
     private ParallaxRecyclerView recyclerView;
-    private List<ShowDetails> list;
+    private List<ShowDetails> listToday, listTomorrow, listUpcoming;
     private ShowDetails showDetails;
     private TextView tvNoShow, title;
 
@@ -69,6 +70,8 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
     private LinearLayout llNoShow;
 
     private SwitchMultiButton mSwitchMultiButton;
+    private RelativeLayout btnGenre;
+    private TextView tvBtnGenre;
 
 
     @Override
@@ -79,17 +82,20 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
         //setup buttons
         iButtonSetup();
 
-        mSwitchMultiButton = findViewById(R.id.testerswitchbtn);
-        mSwitchMultiButton.setVisibility(View.INVISIBLE);
+        mSwitchMultiButton = findViewById(R.id.datefilterbtn);
 
-        list = new ArrayList<>();
+        btnGenre = findViewById(R.id.rlBtnGenre);
+        tvBtnGenre = findViewById(R.id.tvBtnGenre);
 
-        switchlistener();
+        listToday = new ArrayList<>();
+        listTomorrow = new ArrayList<>();
+        listUpcoming = new ArrayList<>();
 
         initAnimationRelatedFields();
 
         toolbar = findViewById(R.id.toolbar);
         frameLayout = findViewById(R.id.genre_container);
+        frameLayout.setVisibility(View.INVISIBLE);
         title = findViewById(R.id.toolbar_title);
 
         switcher = 0;
@@ -103,7 +109,6 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
                 finish();
-
             }
         });
 
@@ -114,9 +119,6 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        recyclerView.setVisibility(View.INVISIBLE);
-        frameLayout.setVisibility(View.INVISIBLE);
-
         window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.black));
 
@@ -126,9 +128,9 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
         relativeLayout = findViewById(R.id.spinnerkitloader);
         relativeLayout.setVisibility(View.VISIBLE);
 
-
-
         startChildEventListener();
+        switchlistener();
+
     }
 
     private void switchlistener(){
@@ -136,21 +138,13 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
         final int[] targetTranslation = {0};
         final Interpolator[] interpolator = {null};
 
-        mSwitchMultiButton.setText("SHOWS", "FILTER").setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
+        btnGenre.setOnClickListener(new OnClickListener() {
             @Override
-            public void onSwitch(int position, String tabText) {
-                if(position == 0){
-
+            public void onClick(View v) {
+                if(tvBtnGenre.getText().toString().equalsIgnoreCase("gigs")){
                     targetTranslation[0] = 0;
                     interpolator[0] = contentInInterpolator;
-                    title.setText("Upcoming gigs");
-                    if(list.isEmpty()){
-//                        tvNoShow.setVisibility(View.VISIBLE);
-                        llNoShow.setVisibility(View.VISIBLE);
-                        mSwitchMultiButton.setVisibility(View.INVISIBLE);
-                        frameLayout.setVisibility(View.INVISIBLE);
-                        recyclerView.setVisibility(View.GONE);
-                    }
+                    title.setText("Gigs happening");
 
                     recyclerView.animate().cancel();
                     recyclerView.animate()
@@ -159,21 +153,52 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
                             .setDuration(DURATION_COLOR_CHANGE_MS)
                             .start();
 
-                }
-                else if(position == 1){
+                    tvBtnGenre.setText("Genre");
+                    mSwitchMultiButton.setVisibility(View.VISIBLE);
+                    frameLayout.setVisibility(View.INVISIBLE);
+                    if (mSwitchMultiButton.getSelectedTab() == 0) {
+                        if(listToday.size() == 0){
+                            llNoShow.setVisibility(View.VISIBLE);
+                            recyclerView.setVisibility(View.INVISIBLE);
 
+                        }
+                        else{
+                            llNoShow.setVisibility(View.INVISIBLE);
+                            recyclerView.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+                    else if(mSwitchMultiButton.getSelectedTab() == 1){
+                        if(listTomorrow.size() == 0){
+                            llNoShow.setVisibility(View.VISIBLE);
+                            recyclerView.setVisibility(View.INVISIBLE);
+
+                        }
+                        else{
+                            llNoShow.setVisibility(View.INVISIBLE);
+                            recyclerView.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+                    else if(mSwitchMultiButton.getSelectedTab() == 2){
+                        if(listUpcoming.size() == 0){
+                            llNoShow.setVisibility(View.VISIBLE);
+                            recyclerView.setVisibility(View.INVISIBLE);
+
+                        }
+                        else{
+                            llNoShow.setVisibility(View.INVISIBLE);
+                            recyclerView.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+
+                }
+                else{
                     targetTranslation[0] = recyclerView.getHeight();
                     interpolator[0] = contentOutInterpolator;
                     title.setText(R.string.sort_by_genre);
                     frameLayout.setVisibility(View.VISIBLE);
-                    llNoShow.setVisibility(View.INVISIBLE);
-                    mSwitchMultiButton.setVisibility(View.VISIBLE);
-
-                    if(list.isEmpty()){
-                        recyclerView.setVisibility(View.GONE);
-                        mSwitchMultiButton.setVisibility(View.INVISIBLE);
-
-                    }
 
                     recyclerView.animate().cancel();
                     recyclerView.animate()
@@ -181,15 +206,120 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
                             .setInterpolator(interpolator[0])
                             .setDuration(DURATION_COLOR_CHANGE_MS)
                             .start();
+                    tvBtnGenre.setText("Gigs");
+                    recyclerView.setVisibility(View.INVISIBLE);
+                    mSwitchMultiButton.setVisibility(View.GONE);
+                    frameLayout.setVisibility(View.VISIBLE);
+                    llNoShow.setVisibility(View.INVISIBLE);
+
                 }
             }
         });
 
+//        mSwitchMultiButton.setText("SHOWS", "FILTER").setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
+//            @Override
+//            public void onSwitch(int position, String tabText) {
+//                if(position == 0){
+//
+//                    targetTranslation[0] = 0;
+//                    interpolator[0] = contentInInterpolator;
+//                    title.setText("Upcoming gigs");
+//                    if(list.isEmpty()){
+////                        tvNoShow.setVisibility(View.VISIBLE);
+//                        llNoShow.setVisibility(View.VISIBLE);
+//                        mSwitchMultiButton.setVisibility(View.INVISIBLE);
+//                        frameLayout.setVisibility(View.INVISIBLE);
+//                        recyclerView.setVisibility(View.GONE);
+//                    }
+//
+//                    recyclerView.animate().cancel();
+//                    recyclerView.animate()
+//                            .translationY(targetTranslation[0])
+//                            .setInterpolator(interpolator[0])
+//                            .setDuration(DURATION_COLOR_CHANGE_MS)
+//                            .start();
+//
+//                }
+//                else if(position == 1){
+//
+//                    targetTranslation[0] = recyclerView.getHeight();
+//                    interpolator[0] = contentOutInterpolator;
+//                    title.setText(R.string.sort_by_genre);
+//                    frameLayout.setVisibility(View.VISIBLE);
+//                    llNoShow.setVisibility(View.INVISIBLE);
+//                    mSwitchMultiButton.setVisibility(View.VISIBLE);
+//
+//                    if(list.isEmpty()){
+//                        recyclerView.setVisibility(View.GONE);
+//                        mSwitchMultiButton.setVisibility(View.INVISIBLE);
+//
+//                    }
+//
+//                    recyclerView.animate().cancel();
+//                    recyclerView.animate()
+//                            .translationY(targetTranslation[0] + 100)
+//                            .setInterpolator(interpolator[0])
+//                            .setDuration(DURATION_COLOR_CHANGE_MS)
+//                            .start();
+//                }
+//            }
+//        });
 
+
+        mSwitchMultiButton.setText("Today", "Tomorrow", "Upcoming").setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
+            @Override
+            public void onSwitch(int position, String tabText) {
+                if(position == 0){
+                    //today
+                    if(listToday.isEmpty()){
+                        llNoShow.setVisibility(View.VISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                    }
+                    else{
+                        llNoShow.setVisibility(View.INVISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.VISIBLE);
+
+                        getShowList(listToday);
+                    }
+                }
+                else if(position == 1){
+                    //tomorrow
+                    if(listTomorrow.isEmpty()){
+                        llNoShow.setVisibility(View.VISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                    }
+                    else{
+                        llNoShow.setVisibility(View.INVISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.VISIBLE);
+
+                        getShowList(listTomorrow);
+                    }
+                }
+                else{
+                    //upcoming
+                    if(listUpcoming.isEmpty()){
+                        llNoShow.setVisibility(View.VISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                    }
+                    else{
+                        llNoShow.setVisibility(View.INVISIBLE);
+                        frameLayout.setVisibility(View.INVISIBLE);
+                        recyclerView.setVisibility(View.VISIBLE);
+
+                        getShowList(listUpcoming);
+                    }
+                }
+            }
+        });
 
     }
 
-    private void getAllShowList(DataSnapshot dataSnapshot){
+    private void getShowList(List list){
 
         dateSorter((ArrayList) list);
         ViewAllShowsAdapter viewAllShowsAdapter = new ViewAllShowsAdapter(ViewAllShowsActivity.this, list);
@@ -228,36 +358,53 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
                 showDetails = dataSnapshot.getValue(ShowDetails.class);
                 if (showDetails != null) {
 
-
-
                     Calendar c = Calendar.getInstance();
+                    Calendar cTomorrow = Calendar.getInstance();
+                    Calendar cUpcoming = Calendar.getInstance();
+
+                    cTomorrow.add(Calendar.DAY_OF_MONTH,1);
+                    cUpcoming.add(Calendar.DAY_OF_MONTH,2);
+
                     SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
                     String todayDate = df.format(c.getTime());
+                    String tomorrowDate = df.format(cTomorrow.getTime());
+                    String upcomingDate = df.format(cUpcoming.getTime());
 
                     String receivedDate = showDetails.getDate();
 
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     Date DateshowDate = null;
                     Date DatetodayDate = null;
+                    Date DatetomorrowDate = null;
+                    Date DateUpcomingDate = null;
 
                     try {
                         DatetodayDate = sdf.parse(todayDate);
+                        DatetomorrowDate = sdf.parse(tomorrowDate);
+                        DateUpcomingDate = sdf.parse(upcomingDate);
                         DateshowDate = sdf.parse(receivedDate);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    if (DateshowDate.after(DatetodayDate) || DateshowDate.equals(DatetodayDate)) {
+
+                    //tomorrow show
+                    if (DateshowDate.equals(DatetomorrowDate)) {
 //                        setemptylisttrue(switcher);
-                        list.add(showDetails);
-                        getAllShowList(dataSnapshot);
-                        recyclerView.setVisibility(View.VISIBLE);
-                        mSwitchMultiButton.setVisibility(View.VISIBLE);
-//                        tvNoShow.setVisibility(View.INVISIBLE);
+                        listTomorrow.add(showDetails);
+                    }
+                    //today show
+                    else if (DateshowDate.equals(DatetodayDate)){
+                        listToday.add(showDetails);
+                        getShowList(listToday);
+
                         llNoShow.setVisibility(View.INVISIBLE);
-                        mSwitchMultiButton.setVisibility(View.VISIBLE);
 
                     }
-
+                    //upcoming show
+                    else if (DateshowDate.after(DateUpcomingDate) || (DateshowDate.equals(DateUpcomingDate))){
+                        listUpcoming.add(showDetails);
+                    }
                 }
 
 
@@ -274,6 +421,8 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
                             public void run() {
                                 // Set the View's visibility back on the main UI Thread
                                 relativeLayout.setVisibility(View.GONE);
+
+
                             }
                         });
                     }
@@ -282,7 +431,6 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                getAllShowList(dataSnapshot);
             }
 
             @Override
@@ -302,6 +450,7 @@ public class ViewAllShowsActivity extends AppCompatActivity implements
         };
 
         databaseReference.addChildEventListener(childEventListener1);
+
     }
 
     @Override

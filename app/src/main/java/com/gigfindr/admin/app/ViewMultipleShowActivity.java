@@ -42,18 +42,13 @@ import lib.kingja.switchbutton.SwitchMultiButton;
 public class ViewMultipleShowActivity extends AppCompatActivity {
 
     private ParallaxRecyclerView recyclerView;
-    private List<ShowDetails> list;
-    private ShowDetails showDetails;
 
     private RelativeLayout relativeLayout;
 
-    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Show");
 
     private Window window;
     private Toolbar toolbar;
 
-    private FrameLayout frameLayout;
-    private ChildEventListener childEventListener1;
 
     private ArrayList<ShowDetails> arrayListRetrieved;
 
@@ -64,9 +59,7 @@ public class ViewMultipleShowActivity extends AppCompatActivity {
 
         arrayListRetrieved = (ArrayList<ShowDetails>) getIntent().getSerializableExtra("multipleShow");
 
-        list = new ArrayList<>();
         toolbar = findViewById(R.id.toolbar);
-        frameLayout = findViewById(R.id.genre_container);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

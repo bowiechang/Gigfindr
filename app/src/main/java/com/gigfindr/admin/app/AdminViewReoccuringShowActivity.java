@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -24,10 +27,12 @@ import com.yayandroid.parallaxrecyclerview.ParallaxRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminViewReoccuringShowActivity extends AppCompatActivity {
+public class AdminViewReoccuringShowActivity extends AppCompatActivity implements TextWatcher {
 
     private ParallaxRecyclerView recyclerView;
-    private List<ShowDetails> list;
+    private ArrayList<ShowDetails> list;
+    private ArrayList<ShowDetails> arrayListNew;
+    private ArrayList<ShowDetails> arrayListClone;
     private ShowDetails showDetails;
 
     private RelativeLayout relativeLayout;
@@ -40,6 +45,7 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
     private String genre;
 
     private ChildEventListener childEventListener1;
+    private EditText editTextSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +65,8 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv);
         imageViewAdd = findViewById(R.id.ivAddShow);
+        editTextSearch = findViewById(R.id.etSearchBar);
+        editTextSearch.addTextChangedListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
@@ -85,7 +93,7 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
 
     }
 
-    private void getAllShowList(){
+    private void getAllShowList(ArrayList<ShowDetails> list){
         AdminViewReoccuringShowAdapter adminViewReoccuringShowAdapter = new AdminViewReoccuringShowAdapter(AdminViewReoccuringShowActivity.this, list);
         recyclerView.setAdapter(adminViewReoccuringShowAdapter);
     }
@@ -103,7 +111,6 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                getAllShowList();
             }
 
             @Override
@@ -129,13 +136,11 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ArrayList<ShowDetails> arrayListNew = new ArrayList<>();
+                arrayListNew = new ArrayList<>();
                 for(ShowDetails element: list){
-                    ShowDetails showDetailsNow = (ShowDetails) element;
-                    Log.d("adminpostshowact::", "showdetailsnow details:: " + showDetailsNow.getBandName() + "," + showDetailsNow.getAddress() + "," +showDetailsNow.getStartTime());
+                    ShowDetails showDetailsNow = element;
                     for(ShowDetails element2 : arrayListNew){
                         ShowDetails showDetailsNext = element2;
-                        Log.d("adminpostshowact::", "showDetailsNext details:: " + showDetailsNext.getBandName() + "," + showDetailsNext.getAddress() + "," +showDetailsNext.getStartTime());
 
                         if(!showDetailsNext.getUserid().equalsIgnoreCase(showDetailsNow.getUserid())){
                             if(!showDetailsNext.getAddress().equalsIgnoreCase(showDetailsNow.getAddress())){
@@ -146,7 +151,7 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
                         }
                     }
                 }
-                getAllShowList();
+                getAllShowList(list);
             }
 
             @Override
@@ -173,6 +178,34 @@ public class AdminViewReoccuringShowActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(AdminViewReoccuringShowActivity.this, AboutAppActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        arrayListClone = new ArrayList<>();
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        if(s.toString().equalsIgnoreCase("")){
+            getAllShowList(list);
+        }
+        else{
+            Log.d("aftertext:: ", s.toString());
+            for(ShowDetails element: list) {
+                Log.d("bandname aftertext:: ", element.getBandName());
+
+                if(element.getBandName().contains((s.toString().toUpperCase()))){
+                    arrayListClone.add(element);
+                }
+            }
+            getAllShowList(arrayListClone);
+        }
     }
 }
 

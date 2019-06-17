@@ -116,7 +116,7 @@
 
     <string name="markerinfowindow_select"><i>Select for more details</i></string>
 
-    <string name="viewallshowsactivity_upcomingshows">Upcoming gigs</string>
+    <string name="viewallshowsactivity_upcomingshows">Gigs happening</string>
     <string name="viewallshowsactivity_multipleshows">Multiple gigs found</string>
     <string name="viewallshowsactivity_blues">Blues</string>
     <string name="viewallshowsactivity_rock">Rock</string>

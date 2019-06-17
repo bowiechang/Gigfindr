@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +13,8 @@
         app:elevation="0dp"
         android:background="@null"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -63,17 +64,20 @@
         </FrameLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <EditText
+        android:id="@+id/etSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbar"/>
+
 
     <com.yayandroid.parallaxrecyclerview.ParallaxRecyclerView
         android:id="@+id/rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginRight="17dp"
         android:layout_marginLeft="17dp"
         android:background="@color/bgyellow1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar"/>
+        android:layout_below="@id/etSearchBar"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
